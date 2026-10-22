@@ -1,0 +1,28 @@
+{
+  "name": "campuskart-backend",
+  "version": "1.0.0",
+  "private": true,
+  "description": "CampusKart REST API - Node.js + Express.js + MongoDB",
+  "main": "server.js",
+  "scripts": {
+    "start": "node server.js",
+    "dev": "node --watch server.js",
+    "seed": "node seed.js",
+    "test": "node --test src/tests/unit.test.js",
+    "test:unit": "node --test src/tests/unit.test.js",
+    "db:init": "node ../database/migrations/001-init.js",
+    "db:verify": "node ../database/tests/verify.js",
+    "db:stats": "node ../database/aggregations/category-stats.js",
+    "db:transaction-demo": "node ../database/transactions/transaction-demo.js",
+    "demo:http": "node examples/native-http-server.js"
+  },
+  "engines": {
+    "node": ">=20.19.0"
+  },
+  "dependencies": {
+    "express": "^5.3.0",
+    "mongodb": "^7.7.0",
+    "multer": "^2.4.0",
+    "nodemailer": "^10.1.7"
+  }
+}

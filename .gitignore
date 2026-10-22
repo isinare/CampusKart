@@ -1,0 +1,30 @@
+# Dependencies
+node_modules/
+
+# Build output
+frontend/dist/
+tomcat-demo/target/
+
+# Environment files and secrets
+.env
+backend/.env
+frontend/.env
+*.local
+
+# Runtime uploads: student ID cards and item photos stay on the machine/disk.
+# The folder itself is kept so multer has somewhere to write.
+backend/uploads/*
+!backend/uploads/.gitkeep
+
+# Logs, dumps and editor files
+backend/logs/
+*.log
+npm-debug.log*
+database/backups/*
+!database/backups/.gitkeep
+*.war
+.DS_Store
+Thumbs.db
+.vscode/
+.idea/
+coverage/

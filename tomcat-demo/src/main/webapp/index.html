@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>CampusKart Tomcat demo</title>
+<style>
+  body { font: 15px/1.6 Inter, Arial, sans-serif; background: #f6f7f9; color: #1d2939; padding: 48px; }
+  main { max-width: 680px; margin: 0 auto; background: #fff; border: 1px solid #e4e7ec; border-radius: 12px; padding: 28px; }
+  code { background: #f2f4f7; padding: 2px 6px; border-radius: 4px; }
+</style>
+</head>
+<body>
+<main>
+  <h1>CampusKart Tomcat demo</h1>
+  <p>This tiny WAR is intentionally isolated from the React/Express/MongoDB application. It only proves that the same Java servlet container used by the original project can still be started.</p>
+  <p>Open <a href="health">/campuskart-demo/health</a> for a JSON response.</p>
+  <p>Build with <code>mvn clean package</code>, then copy <code>target/campuskart-demo.war</code> into Tomcat's <code>webapps</code> folder.</p>
+</main>
+</body>
+</html>

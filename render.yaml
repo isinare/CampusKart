@@ -1,0 +1,38 @@
+# Render blueprint for the CampusKart MERN application.
+# One Node service serves both the REST API and the built React frontend.
+services:
+  - type: web
+    name: campuskart
+    runtime: node
+    plan: free
+    autoDeploy: true
+    buildCommand: >-
+      npm --prefix backend install --omit=dev &&
+      npm --prefix frontend install --include=dev &&
+      npm --prefix frontend run build
+    startCommand: npm --prefix backend start
+    healthCheckPath: /health
+    envVars:
+      - key: NODE_VERSION
+        value: 22.14.0
+      - key: NODE_ENV
+        value: production
+      - key: MONGODB_DB
+        value: campuskart
+      # Paste the MongoDB Atlas connection string in the Render dashboard.
+      # Never commit real credentials to the repository.
+      - key: MONGODB_URI
+        sync: false
+      # Optional e-mail notifications. Leave SMTP_HOST empty to disable them.
+      - key: SMTP_HOST
+        sync: false
+      - key: SMTP_PORT
+        value: 587
+      - key: SMTP_SECURE
+        value: false
+      - key: SMTP_USER
+        sync: false
+      - key: SMTP_PASS
+        sync: false
+      - key: SMTP_FROM
+        sync: false

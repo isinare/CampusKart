@@ -1,0 +1,406 @@
+{
+  "info": {
+    "_postman_id": "c4a4b2f2-3a18-4e8e-9a6c-5b7f1c2d9e01",
+    "name": "CampusKart REST API v1",
+    "description": "Conventional REST surface over the same CampusKart business rules. Import this collection after seeding MongoDB and starting the backend. The action-oriented collection CampusKart.postman_collection.json remains available for the original UI contract.",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+  },
+  "variable": [
+    { "key": "baseUrl", "value": "http://localhost:8080" },
+    { "key": "email", "value": "aarav.sharma@college.edu.in" },
+    { "key": "password", "value": "pass1234" },
+    { "key": "itemId", "value": "I101" },
+    { "key": "requestId", "value": "RQ103" },
+    { "key": "adminEmail", "value": "neha.kulkarni@college.edu.in" },
+    { "key": "adminPassword", "value": "pass1234" }
+  ],
+  "item": [
+    {
+      "name": "Health and discovery",
+      "item": [
+        {
+          "name": "Health",
+          "request": {
+            "method": "GET",
+            "header": [],
+            "url": { "raw": "{{baseUrl}}/health", "host": ["{{baseUrl}}"], "path": ["health"] }
+          },
+          "event": [
+            {
+              "listen": "test",
+              "script": {
+                "exec": [
+                  "pm.test('status is ok', () => pm.response.to.have.status(200));",
+                  "pm.test('database connected', () => pm.expect(pm.response.json().database).to.eql('connected'));"
+                ]
+              }
+            }
+          ]
+        },
+        {
+          "name": "REST discovery",
+          "request": {
+            "method": "GET",
+            "header": [],
+            "url": { "raw": "{{baseUrl}}/api/v1", "host": ["{{baseUrl}}"], "path": ["api", "v1"] }
+          },
+          "event": [
+            {
+              "listen": "test",
+              "script": {
+                "exec": [
+                  "pm.test('returns operation count', () => pm.expect(pm.response.json().operations).to.be.a('number'));"
+                ]
+              }
+            }
+          ]
+        },
+        {
+          "name": "Reference data",
+          "request": {
+            "method": "GET",
+            "header": [],
+            "url": { "raw": "{{baseUrl}}/api/v1/meta", "host": ["{{baseUrl}}"], "path": ["api", "v1", "meta"] }
+          },
+          "event": [
+            {
+              "listen": "test",
+              "script": {
+                "exec": [
+                  "pm.test('has categories and subjects', () => { const d = pm.response.json(); pm.expect(d.categories.length).to.be.greaterThan(0); pm.expect(d.subjects.length).to.be.greaterThan(0); });"
+                ]
+              }
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "name": "Authentication",
+      "item": [
+        {
+          "name": "Login (stores ck_session cookie)",
+          "request": {
+            "method": "POST",
+            "header": [{ "key": "Content-Type", "value": "application/json" }],
+            "body": {
+              "mode": "raw",
+              "raw": "{\"email\":\"{{email}}\",\"password\":\"{{password}}\"}"
+            },
+            "url": { "raw": "{{baseUrl}}/api/v1/auth/login", "host": ["{{baseUrl}}"], "path": ["api", "v1", "auth", "login"] }
+          },
+          "event": [
+            {
+              "listen": "test",
+              "script": {
+                "exec": [
+                  "pm.test('login succeeds', () => pm.response.to.have.status(200));",
+                  "pm.test('role is student', () => pm.expect(pm.response.json().role).to.eql('STUDENT'));"
+                ]
+              }
+            }
+          ]
+        },
+        {
+          "name": "Current profile",
+          "request": {
+            "method": "GET",
+            "header": [],
+            "url": { "raw": "{{baseUrl}}/api/v1/users/me", "host": ["{{baseUrl}}"], "path": ["api", "v1", "users", "me"] }
+          },
+          "event": [
+            {
+              "listen": "test",
+              "script": {
+                "exec": [
+                  "pm.test('has the logged-in user', () => pm.expect(pm.response.json().user_id).to.be.a('string'));"
+                ]
+              }
+            }
+          ]
+        },
+        {
+          "name": "Admin login",
+          "request": {
+            "method": "POST",
+            "header": [{ "key": "Content-Type", "value": "application/json" }],
+            "body": {
+              "mode": "raw",
+              "raw": "{\"email\":\"{{adminEmail}}\",\"password\":\"{{adminPassword}}\"}"
+            },
+            "url": { "raw": "{{baseUrl}}/api/v1/auth/login", "host": ["{{baseUrl}}"], "path": ["api", "v1", "auth", "login"] }
+          },
+          "event": [
+            {
+              "listen": "test",
+              "script": {
+                "exec": [
+                  "pm.test('admin login succeeds', () => pm.response.to.have.status(200));",
+                  "pm.test('role is admin', () => pm.expect(pm.response.json().role).to.eql('ADMIN'));"
+                ]
+              }
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "name": "Catalogue",
+      "item": [
+        {
+          "name": "List items (filter and sort)",
+          "request": {
+            "method": "GET",
+            "header": [],
+            "url": {
+              "raw": "{{baseUrl}}/api/v1/items?q=textbook&sort=price_asc&page=1",
+              "host": ["{{baseUrl}}"],
+              "path": ["api", "v1", "items"],
+              "query": [
+                { "key": "q", "value": "textbook" },
+                { "key": "sort", "value": "price_asc" },
+                { "key": "page", "value": "1" }
+              ]
+            }
+          },
+          "event": [
+            {
+              "listen": "test",
+              "script": {
+                "exec": [
+                  "pm.test('returns a page', () => { const d = pm.response.json(); pm.expect(d.items).to.be.an('array'); pm.expect(d.total).to.be.a('number'); });"
+                ]
+              }
+            }
+          ]
+        },
+        {
+          "name": "Get item",
+          "request": {
+            "method": "GET",
+            "header": [],
+            "url": { "raw": "{{baseUrl}}/api/v1/items/{{itemId}}", "host": ["{{baseUrl}}"], "path": ["api", "v1", "items", "{{itemId}}"] }
+          },
+          "event": [
+            {
+              "listen": "test",
+              "script": {
+                "exec": [
+                  "pm.test('returns the item', () => { const d = pm.response.json(); pm.expect(d.item.item_id).to.eql(pm.variables.get('itemId')); });"
+                ]
+              }
+            }
+          ]
+        },
+        {
+          "name": "Fair price guide",
+          "request": {
+            "method": "GET",
+            "header": [],
+            "url": {
+              "raw": "{{baseUrl}}/api/v1/fair-price?original_price=650&item_condition=GOOD&age_in_months=12",
+              "host": ["{{baseUrl}}"],
+              "path": ["api", "v1", "fair-price"],
+              "query": [
+                { "key": "original_price", "value": "650" },
+                { "key": "item_condition", "value": "GOOD" },
+                { "key": "age_in_months", "value": "12" }
+              ]
+            }
+          },
+          "event": [
+            {
+              "listen": "test",
+              "script": {
+                "exec": [
+                  "pm.test('has a fair range', () => { const d = pm.response.json(); pm.expect(d.low).to.be.a('number'); pm.expect(d.high).to.be.a('number'); });"
+                ]
+              }
+            }
+          ]
+        },
+        {
+          "name": "Seller card",
+          "request": {
+            "method": "GET",
+            "header": [],
+            "url": { "raw": "{{baseUrl}}/api/v1/sellers/U103", "host": ["{{baseUrl}}"], "path": ["api", "v1", "sellers", "U103"] }
+          },
+          "event": [
+            {
+              "listen": "test",
+              "script": {
+                "exec": [
+                  "pm.test('returns seller statistics', () => { const d = pm.response.json(); pm.expect(d.user_id).to.eql('U103'); });"
+                ]
+              }
+            }
+          ]
+        },
+        {
+          "name": "List bundles",
+          "request": {
+            "method": "GET",
+            "header": [],
+            "url": { "raw": "{{baseUrl}}/api/v1/bundles", "host": ["{{baseUrl}}"], "path": ["api", "v1", "bundles"] }
+          }
+        },
+        {
+          "name": "List rentals",
+          "request": {
+            "method": "GET",
+            "header": [],
+            "url": { "raw": "{{baseUrl}}/api/v1/rentals", "host": ["{{baseUrl}}"], "path": ["api", "v1", "rentals"] }
+          }
+        }
+      ]
+    },
+    {
+      "name": "Requests and bills",
+      "item": [
+        {
+          "name": "My requests",
+          "request": {
+            "method": "GET",
+            "header": [],
+            "url": { "raw": "{{baseUrl}}/api/v1/requests", "host": ["{{baseUrl}}"], "path": ["api", "v1", "requests"] }
+          },
+          "event": [
+            {
+              "listen": "test",
+              "script": {
+                "exec": [
+                  "pm.test('has sent and received lists', () => { const d = pm.response.json(); pm.expect(d.sent).to.be.an('array'); pm.expect(d.received).to.be.an('array'); });"
+                ]
+              }
+            }
+          ]
+        },
+        {
+          "name": "Incoming requests",
+          "request": {
+            "method": "GET",
+            "header": [],
+            "url": { "raw": "{{baseUrl}}/api/v1/requests/incoming", "host": ["{{baseUrl}}"], "path": ["api", "v1", "requests", "incoming"] }
+          }
+        },
+        {
+          "name": "Send a buy request",
+          "request": {
+            "method": "POST",
+            "header": [{ "key": "Content-Type", "value": "application/json" }],
+            "body": {
+              "mode": "raw",
+              "raw": "{\"item_id\":\"{{itemId}}\",\"request_type\":\"BUY\",\"message\":\"Postman REST request\"}"
+            },
+            "url": { "raw": "{{baseUrl}}/api/v1/requests", "host": ["{{baseUrl}}"], "path": ["api", "v1", "requests"] }
+          },
+          "event": [
+            {
+              "listen": "test",
+              "script": {
+                "exec": [
+                  "pm.test('request created', () => pm.response.to.have.status(201));"
+                ]
+              }
+            }
+          ]
+        },
+        {
+          "name": "Bill by id",
+          "request": {
+            "method": "GET",
+            "header": [],
+            "url": { "raw": "{{baseUrl}}/api/v1/bills/BL101", "host": ["{{baseUrl}}"], "path": ["api", "v1", "bills", "BL101"] }
+          },
+          "event": [
+            {
+              "listen": "test",
+              "script": {
+                "exec": [
+                  "pm.test('returns bill', () => pm.expect(pm.response.json().bill_no).to.be.a('string'));"
+                ]
+              }
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "name": "Rentals",
+      "item": [
+        {
+          "name": "Get rental item",
+          "request": {
+            "method": "GET",
+            "header": [],
+            "url": { "raw": "{{baseUrl}}/api/v1/rentals/RI101", "host": ["{{baseUrl}}"], "path": ["api", "v1", "rentals", "RI101"] }
+          }
+        },
+        {
+          "name": "My bookings",
+          "request": {
+            "method": "GET",
+            "header": [],
+            "url": { "raw": "{{baseUrl}}/api/v1/bookings", "host": ["{{baseUrl}}"], "path": ["api", "v1", "bookings"] }
+          }
+        }
+      ]
+    },
+    {
+      "name": "Admin",
+      "item": [
+        {
+          "name": "Overview",
+          "request": {
+            "method": "GET",
+            "header": [],
+            "url": { "raw": "{{baseUrl}}/api/v1/admin/overview", "host": ["{{baseUrl}}"], "path": ["api", "v1", "admin", "overview"] }
+          },
+          "event": [
+            {
+              "listen": "test",
+              "script": {
+                "exec": [
+                  "pm.test('overview has counts', () => { const d = pm.response.json(); pm.expect(d.students).to.be.a('number'); });"
+                ]
+              }
+            }
+          ]
+        },
+        {
+          "name": "Users",
+          "request": {
+            "method": "GET",
+            "header": [],
+            "url": { "raw": "{{baseUrl}}/api/v1/admin/users", "host": ["{{baseUrl}}"], "path": ["api", "v1", "admin", "users"] }
+          }
+        },
+        {
+          "name": "Verification queue",
+          "request": {
+            "method": "GET",
+            "header": [],
+            "url": { "raw": "{{baseUrl}}/api/v1/admin/verifications", "host": ["{{baseUrl}}"], "path": ["api", "v1", "admin", "verifications"] }
+          }
+        },
+        {
+          "name": "Reports",
+          "request": {
+            "method": "GET",
+            "header": [],
+            "url": { "raw": "{{baseUrl}}/api/v1/admin/reports", "host": ["{{baseUrl}}"], "path": ["api", "v1", "admin", "reports"] }
+          }
+        },
+        {
+          "name": "Fraud flags",
+          "request": {
+            "method": "GET",
+            "header": [],
+            "url": { "raw": "{{baseUrl}}/api/v1/admin/fraud-flags", "host": ["{{baseUrl}}"], "path": ["api", "v1", "admin", "fraud-flags"] }
+          }
+        }
+      ]
+    }
+  ]
+}

@@ -1,0 +1,19 @@
+/*
+ * React-only styles. The complete CampusKart visual system lives in
+ * `public/style.css` and is intentionally unchanged. This file only makes the
+ * React mount point behave like the original <body>.
+ */
+#root {
+  min-height: 100vh;
+}
+
+.site-layout {
+  display: contents;
+}
+
+.ck-loading {
+  padding: 80px 20px;
+  text-align: center;
+  color: #667085;
+  font: 500 15px/1.5 Inter, sans-serif;
+}

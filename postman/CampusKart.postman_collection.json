@@ -1,0 +1,1901 @@
+{
+  "info": {
+    "_postman_id": "c8f0d4d6-6a8a-4e1c-9c3f-1f6f5a7b2c11",
+    "name": "CampusKart MERN API",
+    "description": "All 67 CampusKart operations. Start the API with `npm start` in backend/ and import this collection.\n\nLogin once: Postman stores the HttpOnly ck_session cookie for every later request. Use the demo accounts in the project README, or register a new student with the multipart request.",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+  },
+  "item": [
+    {
+      "name": "Authentication",
+      "item": [
+        {
+          "name": "meta",
+          "request": {
+            "method": "POST",
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              }
+            ],
+            "url": "{{baseUrl}}/api/meta",
+            "description": "Public bootstrap data: branches, categories, subjects, institutes, locations and site settings.",
+            "body": {
+              "mode": "raw",
+              "raw": "{}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "settings",
+          "request": {
+            "method": "POST",
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              }
+            ],
+            "url": "{{baseUrl}}/api/settings",
+            "description": "Farewell banner flag only.",
+            "body": {
+              "mode": "raw",
+              "raw": "{}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "login",
+          "request": {
+            "method": "POST",
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              }
+            ],
+            "url": "{{baseUrl}}/api/login",
+            "description": "Sets the HttpOnly ck_session cookie. Postman keeps it automatically.",
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"email\": \"{{studentEmail}}\",\n  \"password\": \"{{studentPassword}}\"\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "register",
+          "request": {
+            "method": "POST",
+            "header": [],
+            "url": "{{baseUrl}}/api/register",
+            "description": "Multipart: fill the fields and attach an ID-card photo. card_text is the OCR text read in the browser. Use form-data and attach the ID card or the 3 to 5 photos.",
+            "body": {
+              "mode": "formdata",
+              "formdata": [
+                {
+                  "key": "full_name",
+                  "value": "New Student",
+                  "type": "text"
+                },
+                {
+                  "key": "email",
+                  "value": "new.student@college.edu.in",
+                  "type": "text"
+                },
+                {
+                  "key": "college_id",
+                  "value": "25070122999",
+                  "type": "text"
+                },
+                {
+                  "key": "phone_no",
+                  "value": "9876500099",
+                  "type": "text"
+                },
+                {
+                  "key": "password",
+                  "value": "Testpass1",
+                  "type": "text"
+                },
+                {
+                  "key": "age",
+                  "value": "20",
+                  "type": "text"
+                },
+                {
+                  "key": "gender",
+                  "value": "Female",
+                  "type": "text"
+                },
+                {
+                  "key": "year",
+                  "value": "2",
+                  "type": "text"
+                },
+                {
+                  "key": "semester",
+                  "value": "3",
+                  "type": "text"
+                },
+                {
+                  "key": "institute_id",
+                  "value": "IN101",
+                  "type": "text"
+                },
+                {
+                  "key": "branch_id",
+                  "value": "B101",
+                  "type": "text"
+                },
+                {
+                  "key": "card_text",
+                  "value": "Name : NEW STUDENT\nPRN : 25070122999",
+                  "type": "text"
+                },
+                {
+                  "key": "id_card",
+                  "type": "file",
+                  "src": []
+                }
+              ]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "logout",
+          "request": {
+            "method": "POST",
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              }
+            ],
+            "url": "{{baseUrl}}/api/logout",
+            "description": "Clears the session cookie.",
+            "body": {
+              "mode": "raw",
+              "raw": "{}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "profile",
+          "request": {
+            "method": "POST",
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              }
+            ],
+            "url": "{{baseUrl}}/api/profile",
+            "description": "Signed-in user, phone numbers and student block.",
+            "body": {
+              "mode": "raw",
+              "raw": "{}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "updateProfile",
+          "request": {
+            "method": "POST",
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              }
+            ],
+            "url": "{{baseUrl}}/api/updateProfile",
+            "description": "Students only.",
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"first_name\": \"Aarav\",\n  \"last_name\": \"Sharma\",\n  \"semester\": 5\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "addPhone",
+          "request": {
+            "method": "POST",
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              }
+            ],
+            "url": "{{baseUrl}}/api/addPhone",
+            "description": "Add another phone number.",
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"phone_no\": \"9876500010\"\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "removePhone",
+          "request": {
+            "method": "POST",
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              }
+            ],
+            "url": "{{baseUrl}}/api/removePhone",
+            "description": "At least one number must stay.",
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"phone_no\": \"9876500010\"\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "changePassword",
+          "request": {
+            "method": "POST",
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              }
+            ],
+            "url": "{{baseUrl}}/api/changePassword",
+            "description": "Eight characters or more.",
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"old_password\": \"pass1234\",\n  \"new_password\": \"Newpass123\"\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          },
+          "response": []
+        }
+      ]
+    },
+    {
+      "name": "Catalogue",
+      "item": [
+        {
+          "name": "home",
+          "request": {
+            "method": "POST",
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              }
+            ],
+            "url": "{{baseUrl}}/api/home",
+            "description": "Just listed, counters, kit summary and wish matches.",
+            "body": {
+              "mode": "raw",
+              "raw": "{}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "listItems",
+          "request": {
+            "method": "POST",
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              }
+            ],
+            "url": "{{baseUrl}}/api/listItems",
+            "description": "Paged search. sort = price_asc, price_desc or newest.",
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"q\": \"\",\n  \"page\": 1,\n  \"sort\": \"newest\",\n  \"kind\": \"\",\n  \"category_id\": \"\",\n  \"branch_id\": \"\",\n  \"semester\": \"\",\n  \"min_price\": \"\",\n  \"max_price\": \"\"\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "getItem",
+          "request": {
+            "method": "POST",
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              }
+            ],
+            "url": "{{baseUrl}}/api/getItem",
+            "description": "Item, images, seller card, deal log and my request.",
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"item_id\": \"{{itemId}}\"\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "fairPrice",
+          "request": {
+            "method": "POST",
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              }
+            ],
+            "url": "{{baseUrl}}/api/fairPrice",
+            "description": "Pure calculation, no session needed.",
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"original_price\": 1000,\n  \"item_condition\": \"GOOD\",\n  \"age_in_months\": 12\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "myItems",
+          "request": {
+            "method": "POST",
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              }
+            ],
+            "url": "{{baseUrl}}/api/myItems",
+            "description": "Seller dashboard.",
+            "body": {
+              "mode": "raw",
+              "raw": "{}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "createItem",
+          "request": {
+            "method": "POST",
+            "header": [],
+            "url": "{{baseUrl}}/api/createItem",
+            "description": "Multipart: 3 to 5 photos, one per photos field. Use form-data and attach the ID card or the 3 to 5 photos.",
+            "body": {
+              "mode": "formdata",
+              "formdata": [
+                {
+                  "key": "item_name",
+                  "value": "Data Structures Textbook",
+                  "type": "text"
+                },
+                {
+                  "key": "description",
+                  "value": "A well kept copy used for one semester, with all pages and no writing inside.",
+                  "type": "text"
+                },
+                {
+                  "key": "category_id",
+                  "value": "CA101",
+                  "type": "text"
+                },
+                {
+                  "key": "item_condition",
+                  "value": "GOOD",
+                  "type": "text"
+                },
+                {
+                  "key": "original_price",
+                  "value": "600",
+                  "type": "text"
+                },
+                {
+                  "key": "selling_price",
+                  "value": "300",
+                  "type": "text"
+                },
+                {
+                  "key": "pickup_location",
+                  "value": "Library",
+                  "type": "text"
+                },
+                {
+                  "key": "kind",
+                  "value": "ACADEMIC",
+                  "type": "text"
+                },
+                {
+                  "key": "subject_id",
+                  "value": "SB101",
+                  "type": "text"
+                },
+                {
+                  "key": "branch_id",
+                  "value": "B101",
+                  "type": "text"
+                },
+                {
+                  "key": "target_semester",
+                  "value": "3",
+                  "type": "text"
+                },
+                {
+                  "key": "edition",
+                  "value": "3rd",
+                  "type": "text"
+                },
+                {
+                  "key": "cover",
+                  "value": "0",
+                  "type": "text"
+                },
+                {
+                  "key": "photos",
+                  "type": "file",
+                  "src": []
+                },
+                {
+                  "key": "photos",
+                  "type": "file",
+                  "src": []
+                },
+                {
+                  "key": "photos",
+                  "type": "file",
+                  "src": []
+                }
+              ]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "updateItem",
+          "request": {
+            "method": "POST",
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              }
+            ],
+            "url": "{{baseUrl}}/api/updateItem",
+            "description": "Selling-price changes write Price_History.",
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"item_id\": \"{{itemId}}\",\n  \"item_name\": \"Data Structures Textbook\",\n  \"description\": \"A well kept copy used for one semester, with all pages and no writing inside.\",\n  \"item_condition\": \"GOOD\",\n  \"selling_price\": 280,\n  \"pickup_location\": \"Library\"\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "withdrawItem",
+          "request": {
+            "method": "POST",
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              }
+            ],
+            "url": "{{baseUrl}}/api/withdrawItem",
+            "description": "Marks the item REMOVED and rejects waiting requests.",
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"item_id\": \"{{itemId}}\"\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "sellerCard",
+          "request": {
+            "method": "POST",
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              }
+            ],
+            "url": "{{baseUrl}}/api/sellerCard",
+            "description": "Public seller profile and reviews.",
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"user_id\": \"{{userId}}\"\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "semesterKit",
+          "request": {
+            "method": "POST",
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              }
+            ],
+            "url": "{{baseUrl}}/api/semesterKit",
+            "description": "Subject-by-subject kit for the signed-in student.",
+            "body": {
+              "mode": "raw",
+              "raw": "{}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "clearoutPreview",
+          "request": {
+            "method": "POST",
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              }
+            ],
+            "url": "{{baseUrl}}/api/clearoutPreview",
+            "description": "10% weekly reduction preview, never below 40% of original.",
+            "body": {
+              "mode": "raw",
+              "raw": "{}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "clearoutApply",
+          "request": {
+            "method": "POST",
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              }
+            ],
+            "url": "{{baseUrl}}/api/clearoutApply",
+            "description": "Applies the previewed prices.",
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"item_ids\": [\n    \"{{itemId}}\"\n  ]\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "report",
+          "request": {
+            "method": "POST",
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              }
+            ],
+            "url": "{{baseUrl}}/api/report",
+            "description": "reason = FAKE, INAPPROPRIATE, WRONG_INFO, SPAM or OTHER.",
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"item_id\": \"{{itemId}}\",\n  \"reason\": \"FAKE\",\n  \"details\": \"The photos look copied from another site.\"\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "notifications",
+          "request": {
+            "method": "POST",
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              }
+            ],
+            "url": "{{baseUrl}}/api/notifications",
+            "description": "Derived from requests, bills, reports and matches.",
+            "body": {
+              "mode": "raw",
+              "raw": "{}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "wishlist",
+          "request": {
+            "method": "POST",
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              }
+            ],
+            "url": "{{baseUrl}}/api/wishlist",
+            "description": "Wishes with matching live items.",
+            "body": {
+              "mode": "raw",
+              "raw": "{}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "addWish",
+          "request": {
+            "method": "POST",
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              }
+            ],
+            "url": "{{baseUrl}}/api/addWish",
+            "description": "Matches existing and future listings.",
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"keyword\": \"data structures\",\n  \"max_price\": 400,\n  \"subject_id\": \"\",\n  \"category_id\": \"\"\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "removeWish",
+          "request": {
+            "method": "POST",
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              }
+            ],
+            "url": "{{baseUrl}}/api/removeWish",
+            "description": "Soft-deactivates the wish.",
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"wish_id\": \"{{wishId}}\"\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "rate",
+          "request": {
+            "method": "POST",
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              }
+            ],
+            "url": "{{baseUrl}}/api/rate",
+            "description": "Buyer only, after the sale is complete.",
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"request_id\": \"{{requestId}}\",\n  \"stars\": 5,\n  \"review\": \"Smooth handover, thanks!\"\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          },
+          "response": []
+        }
+      ]
+    },
+    {
+      "name": "Requests and bills",
+      "item": [
+        {
+          "name": "sendRequest",
+          "request": {
+            "method": "POST",
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              }
+            ],
+            "url": "{{baseUrl}}/api/sendRequest",
+            "description": "Use bundle_id instead of item_id for a bundle. request_type = BUY, OFFER or SWAP.",
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"item_id\": \"{{itemId}}\",\n  \"request_type\": \"BUY\",\n  \"offered_price\": \"\",\n  \"message\": \"Can meet tomorrow.\"\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "myRequests",
+          "request": {
+            "method": "POST",
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              }
+            ],
+            "url": "{{baseUrl}}/api/myRequests",
+            "description": "Buyer side, includes the 4-digit handover pass.",
+            "body": {
+              "mode": "raw",
+              "raw": "{}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "incomingRequests",
+          "request": {
+            "method": "POST",
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              }
+            ],
+            "url": "{{baseUrl}}/api/incomingRequests",
+            "description": "Seller side.",
+            "body": {
+              "mode": "raw",
+              "raw": "{}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "decideRequest",
+          "request": {
+            "method": "POST",
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              }
+            ],
+            "url": "{{baseUrl}}/api/decideRequest",
+            "description": "ACCEPT, REJECT or COUNTER (counter_price).",
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"request_id\": \"{{requestId}}\",\n  \"decision\": \"ACCEPT\",\n  \"handover_location\": \"Library\",\n  \"handover_time\": \"2026-10-25 17:00:00\"\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "respondCounter",
+          "request": {
+            "method": "POST",
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              }
+            ],
+            "url": "{{baseUrl}}/api/respondCounter",
+            "description": "Buyer answers a counter offer.",
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"request_id\": \"{{requestId}}\",\n  \"accept\": true\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "cancelRequest",
+          "request": {
+            "method": "POST",
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              }
+            ],
+            "url": "{{baseUrl}}/api/cancelRequest",
+            "description": "PENDING or COUNTERED only.",
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"request_id\": \"{{requestId}}\"\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "markSold",
+          "request": {
+            "method": "POST",
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              }
+            ],
+            "url": "{{baseUrl}}/api/markSold",
+            "description": "Seller confirms the 4-digit pass; a bill is created.",
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"request_id\": \"{{requestId}}\",\n  \"pass\": \"{{handoverPass}}\"\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "bill",
+          "request": {
+            "method": "POST",
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              }
+            ],
+            "url": "{{baseUrl}}/api/bill",
+            "description": "SALE or RENTAL bill with lines.",
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"bill_id\": \"{{billId}}\"\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          },
+          "response": []
+        }
+      ]
+    },
+    {
+      "name": "Bundles",
+      "item": [
+        {
+          "name": "listBundles",
+          "request": {
+            "method": "POST",
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              }
+            ],
+            "url": "{{baseUrl}}/api/listBundles",
+            "description": "Available and requested bundles.",
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"q\": \"\",\n  \"page\": 1\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "getBundle",
+          "request": {
+            "method": "POST",
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              }
+            ],
+            "url": "{{baseUrl}}/api/getBundle",
+            "description": "Bundle, its items, 40% price and my request.",
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"bundle_id\": \"{{bundleId}}\"\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "createBundle",
+          "request": {
+            "method": "POST",
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              }
+            ],
+            "url": "{{baseUrl}}/api/createBundle",
+            "description": "At least two academic items, all yours and available.",
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"bundle_name\": \"Semester 3 Kit\",\n  \"item_ids\": [\n    \"{{itemId}}\",\n    \"{{itemId2}}\"\n  ]\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "myBundles",
+          "request": {
+            "method": "POST",
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              }
+            ],
+            "url": "{{baseUrl}}/api/myBundles",
+            "description": "Seller side.",
+            "body": {
+              "mode": "raw",
+              "raw": "{}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "withdrawBundle",
+          "request": {
+            "method": "POST",
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              }
+            ],
+            "url": "{{baseUrl}}/api/withdrawBundle",
+            "description": "Releases the items.",
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"bundle_id\": \"{{bundleId}}\"\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          },
+          "response": []
+        }
+      ]
+    },
+    {
+      "name": "Rentals",
+      "item": [
+        {
+          "name": "listRentals",
+          "request": {
+            "method": "POST",
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              }
+            ],
+            "url": "{{baseUrl}}/api/listRentals",
+            "description": "Rentable items only.",
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"q\": \"\",\n  \"category_id\": \"\",\n  \"max_rate\": \"\",\n  \"sort\": \"newest\",\n  \"page\": 1\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "getRental",
+          "request": {
+            "method": "POST",
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              }
+            ],
+            "url": "{{baseUrl}}/api/getRental",
+            "description": "Rate, deposit, max days, photos and my bookings.",
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"rental_item_id\": \"{{rentalItemId}}\"\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "createRental",
+          "request": {
+            "method": "POST",
+            "header": [],
+            "url": "{{baseUrl}}/api/createRental",
+            "description": "Multipart: 3 to 5 photos, one per photos field. Use form-data and attach the ID card or the 3 to 5 photos.",
+            "body": {
+              "mode": "formdata",
+              "formdata": [
+                {
+                  "key": "rental_name",
+                  "value": "Lab Kit",
+                  "type": "text"
+                },
+                {
+                  "key": "description",
+                  "value": "A complete lab kit with all the tools needed for the electronics lab course.",
+                  "type": "text"
+                },
+                {
+                  "key": "category_id",
+                  "value": "CA103",
+                  "type": "text"
+                },
+                {
+                  "key": "item_condition",
+                  "value": "GOOD",
+                  "type": "text"
+                },
+                {
+                  "key": "rate_per_day",
+                  "value": "50",
+                  "type": "text"
+                },
+                {
+                  "key": "deposit_amount",
+                  "value": "200",
+                  "type": "text"
+                },
+                {
+                  "key": "max_days",
+                  "value": "5",
+                  "type": "text"
+                },
+                {
+                  "key": "pickup_location",
+                  "value": "Library",
+                  "type": "text"
+                },
+                {
+                  "key": "cover",
+                  "value": "0",
+                  "type": "text"
+                },
+                {
+                  "key": "photos",
+                  "type": "file",
+                  "src": []
+                },
+                {
+                  "key": "photos",
+                  "type": "file",
+                  "src": []
+                },
+                {
+                  "key": "photos",
+                  "type": "file",
+                  "src": []
+                }
+              ]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "withdrawRental",
+          "request": {
+            "method": "POST",
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              }
+            ],
+            "url": "{{baseUrl}}/api/withdrawRental",
+            "description": "Rejects pending bookings and removes the item.",
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"rental_item_id\": \"{{rentalItemId}}\"\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "requestRental",
+          "request": {
+            "method": "POST",
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              }
+            ],
+            "url": "{{baseUrl}}/api/requestRental",
+            "description": "Dates are inclusive; total_rent and deposit are returned.",
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"rental_item_id\": \"{{rentalItemId}}\",\n  \"start_date\": \"2026-10-25\",\n  \"end_date\": \"2026-10-27\"\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "myRentals",
+          "request": {
+            "method": "POST",
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              }
+            ],
+            "url": "{{baseUrl}}/api/myRentals",
+            "description": "As renter and as owner.",
+            "body": {
+              "mode": "raw",
+              "raw": "{}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "decideRental",
+          "request": {
+            "method": "POST",
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              }
+            ],
+            "url": "{{baseUrl}}/api/decideRental",
+            "description": "ACCEPT or REJECT.",
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"booking_id\": \"{{bookingId}}\",\n  \"decision\": \"ACCEPT\"\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "cancelBooking",
+          "request": {
+            "method": "POST",
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              }
+            ],
+            "url": "{{baseUrl}}/api/cancelBooking",
+            "description": "PENDING or ACCEPTED.",
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"booking_id\": \"{{bookingId}}\"\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "handoverRental",
+          "request": {
+            "method": "POST",
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              }
+            ],
+            "url": "{{baseUrl}}/api/handoverRental",
+            "description": "Owner marks the item ON_RENT.",
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"booking_id\": \"{{bookingId}}\"\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "returnRental",
+          "request": {
+            "method": "POST",
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              }
+            ],
+            "url": "{{baseUrl}}/api/returnRental",
+            "description": "Owner closes the booking and a RENTAL bill is created.",
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"booking_id\": \"{{bookingId}}\",\n  \"damage_note\": \"Small scratch on the case.\"\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          },
+          "response": []
+        }
+      ]
+    },
+    {
+      "name": "Admin",
+      "item": [
+        {
+          "name": "adminOverview",
+          "request": {
+            "method": "POST",
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              }
+            ],
+            "url": "{{baseUrl}}/api/adminOverview",
+            "description": "Counters, sales by category and by status.",
+            "body": {
+              "mode": "raw",
+              "raw": "{}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "adminUsers",
+          "request": {
+            "method": "POST",
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              }
+            ],
+            "url": "{{baseUrl}}/api/adminUsers",
+            "description": "Students with verification and account state.",
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"q\": \"\"\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "adminVerifications",
+          "request": {
+            "method": "POST",
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              }
+            ],
+            "url": "{{baseUrl}}/api/adminVerifications",
+            "description": "Pending, verified and rejected students.",
+            "body": {
+              "mode": "raw",
+              "raw": "{}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "verifyStudent",
+          "request": {
+            "method": "POST",
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              }
+            ],
+            "url": "{{baseUrl}}/api/verifyStudent",
+            "description": "A rejection needs a remark.",
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"user_id\": \"{{userId}}\",\n  \"status\": \"VERIFIED\",\n  \"remarks\": \"Card checked by hand.\"\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "adminReports",
+          "request": {
+            "method": "POST",
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              }
+            ],
+            "url": "{{baseUrl}}/api/adminReports",
+            "description": "All reports with item, seller and reporter names.",
+            "body": {
+              "mode": "raw",
+              "raw": "{}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "resolveReport",
+          "request": {
+            "method": "POST",
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              }
+            ],
+            "url": "{{baseUrl}}/api/resolveReport",
+            "description": "RESOLVED or DISMISSED.",
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"report_id\": \"{{reportId}}\",\n  \"status\": \"RESOLVED\",\n  \"action_taken\": \"Checked and closed.\",\n  \"remove_item\": false\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "setActive",
+          "request": {
+            "method": "POST",
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              }
+            ],
+            "url": "{{baseUrl}}/api/setActive",
+            "description": "Block or unblock a student.",
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"user_id\": \"{{userId}}\",\n  \"is_active\": true\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "setSettings",
+          "request": {
+            "method": "POST",
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              }
+            ],
+            "url": "{{baseUrl}}/api/setSettings",
+            "description": "Semester-End Farewell Sale banner.",
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"farewell_banner\": true\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "fraudFlags",
+          "request": {
+            "method": "POST",
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              }
+            ],
+            "url": "{{baseUrl}}/api/fraudFlags",
+            "description": "Automatic flags with reasons.",
+            "body": {
+              "mode": "raw",
+              "raw": "{}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "reviewFlag",
+          "request": {
+            "method": "POST",
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              }
+            ],
+            "url": "{{baseUrl}}/api/reviewFlag",
+            "description": "CLEAR or BLOCK.",
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"flag_id\": \"{{flagId}}\",\n  \"action\": \"CLEAR\",\n  \"note\": \"Reviewed.\"\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "activityLog",
+          "request": {
+            "method": "POST",
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              }
+            ],
+            "url": "{{baseUrl}}/api/activityLog",
+            "description": "Admin audit trail.",
+            "body": {
+              "mode": "raw",
+              "raw": "{}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "adminOversight",
+          "request": {
+            "method": "POST",
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              }
+            ],
+            "url": "{{baseUrl}}/api/adminOversight",
+            "description": "All rentals and bundles, with damage notes.",
+            "body": {
+              "mode": "raw",
+              "raw": "{}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "adminRemoveRental",
+          "request": {
+            "method": "POST",
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              }
+            ],
+            "url": "{{baseUrl}}/api/adminRemoveRental",
+            "description": "Rejects pending bookings and marks the item REMOVED.",
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"rental_item_id\": \"{{rentalItemId}}\"\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "adminRemoveBundle",
+          "request": {
+            "method": "POST",
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              }
+            ],
+            "url": "{{baseUrl}}/api/adminRemoveBundle",
+            "description": "Removes the bundle and releases its items.",
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"bundle_id\": \"{{bundleId}}\"\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          },
+          "response": []
+        }
+      ]
+    },
+    {
+      "name": "My account",
+      "item": [
+        {
+          "name": "accountImpact",
+          "request": {
+            "method": "POST",
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              }
+            ],
+            "url": "{{baseUrl}}/api/accountImpact",
+            "description": "What deleting the account would close, erase or keep.",
+            "body": {
+              "mode": "raw",
+              "raw": "{}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "deleteAccount",
+          "request": {
+            "method": "POST",
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              }
+            ],
+            "url": "{{baseUrl}}/api/deleteAccount",
+            "description": "Real delete when there is no history, otherwise close and anonymise.",
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"password\": \"{{studentPassword}}\"\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          },
+          "response": []
+        }
+      ]
+    }
+  ],
+  "variable": [
+    {
+      "key": "baseUrl",
+      "value": "http://localhost:8080/campuskart"
+    },
+    {
+      "key": "studentEmail",
+      "value": "aarav.sharma@college.edu.in"
+    },
+    {
+      "key": "studentPassword",
+      "value": "pass1234"
+    },
+    {
+      "key": "adminEmail",
+      "value": "neha.kulkarni@college.edu.in"
+    },
+    {
+      "key": "adminPassword",
+      "value": "Nebula!23"
+    },
+    {
+      "key": "itemId",
+      "value": "I101"
+    },
+    {
+      "key": "itemId2",
+      "value": "I104"
+    },
+    {
+      "key": "bundleId",
+      "value": "BN101"
+    },
+    {
+      "key": "rentalItemId",
+      "value": "RI101"
+    },
+    {
+      "key": "requestId",
+      "value": "RQ102"
+    },
+    {
+      "key": "bookingId",
+      "value": "BK101"
+    },
+    {
+      "key": "billId",
+      "value": "BL101"
+    },
+    {
+      "key": "userId",
+      "value": "U103"
+    },
+    {
+      "key": "wishId",
+      "value": "W101"
+    },
+    {
+      "key": "reportId",
+      "value": "RP101"
+    },
+    {
+      "key": "flagId",
+      "value": "FF101"
+    },
+    {
+      "key": "handoverPass",
+      "value": "1941"
+    }
+  ]
+}

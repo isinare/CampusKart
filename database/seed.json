@@ -1,0 +1,1933 @@
+{
+  "meta": {
+    "source": "MySQL campuskart",
+    "exported_on": "2026-10-19 18:14:34",
+    "database": "campuskart"
+  },
+  "primaryKeys": {
+    "academic_item": "I_ID",
+    "admin": "U_ID",
+    "admin_activity": "AA_ID",
+    "bill": "Bill_ID",
+    "branch": "Br_ID",
+    "bundle": "Bun_ID",
+    "buy_request": "Req_ID",
+    "category": "Cat_ID",
+    "fraud_flag": "FF_ID",
+    "general_item": "I_ID",
+    "institute": "Ins_ID",
+    "item": "I_ID",
+    "item_image": "Img_ID",
+    "item_recommendation": "IR_ID",
+    "item_status_log": "Log_ID",
+    "price_history": "PH_ID",
+    "rating": "Rat_ID",
+    "rental_booking": "Bk_ID",
+    "rental_image": "RImg_ID",
+    "rental_item": "RI_ID",
+    "report": "Rep_ID",
+    "resolves": "Res_ID",
+    "reviews_flag": "Rv_ID",
+    "site_setting": "Set_Key",
+    "student": "U_ID",
+    "subject": "Sub_ID",
+    "taught_in": "TI_ID",
+    "user_phone": "UP_ID",
+    "users": "U_ID",
+    "verifies": "Ver_ID",
+    "wish_match": "WM_ID",
+    "wishlist": "W_ID"
+  },
+  "collections": {
+    "academic_item": [
+      {
+        "I_ID": "I101",
+        "AI_TargetSemester": 3,
+        "AI_Edition": "2nd",
+        "Sub_ID": "SB102",
+        "Br_ID": "B101",
+        "_id": "I101"
+      },
+      {
+        "I_ID": "I102",
+        "AI_TargetSemester": 3,
+        "AI_Edition": "6th",
+        "Sub_ID": "SB103",
+        "Br_ID": "B101",
+        "_id": "I102"
+      },
+      {
+        "I_ID": "I103",
+        "AI_TargetSemester": 1,
+        "AI_Edition": "fx-991ES",
+        "Sub_ID": "SB101",
+        "Br_ID": "B105",
+        "_id": "I103"
+      },
+      {
+        "I_ID": "I106",
+        "AI_TargetSemester": 1,
+        "AI_Edition": "Mini",
+        "Sub_ID": "SB105",
+        "Br_ID": "B105",
+        "_id": "I106"
+      },
+      {
+        "I_ID": "I107",
+        "AI_TargetSemester": 3,
+        "AI_Edition": "Handwritten",
+        "Sub_ID": "SB102",
+        "Br_ID": "B101",
+        "_id": "I107"
+      },
+      {
+        "I_ID": "I108",
+        "AI_TargetSemester": 3,
+        "AI_Edition": "2023-25",
+        "Sub_ID": "SB102",
+        "Br_ID": "B101",
+        "_id": "I108"
+      },
+      {
+        "I_ID": "I109",
+        "AI_TargetSemester": 3,
+        "AI_Edition": "Uno R3",
+        "Sub_ID": "SB104",
+        "Br_ID": "B103",
+        "_id": "I109"
+      },
+      {
+        "I_ID": "I110",
+        "AI_TargetSemester": 3,
+        "AI_Edition": "Handwritten",
+        "Sub_ID": "SB104",
+        "Br_ID": "B103",
+        "_id": "I110"
+      },
+      {
+        "I_ID": "I111",
+        "AI_TargetSemester": 2,
+        "AI_Edition": "Arduino Uno R3",
+        "Sub_ID": "SB104",
+        "Br_ID": "B101",
+        "_id": "I111"
+      }
+    ],
+    "admin": [
+      {
+        "U_ID": "U101",
+        "Ad_StaffCode": "STF001",
+        "Ad_Level": "SUPER",
+        "_id": "U101"
+      },
+      {
+        "U_ID": "U102",
+        "Ad_StaffCode": "STF002",
+        "Ad_Level": "MODERATOR",
+        "_id": "U102"
+      }
+    ],
+    "admin_activity": [
+      {
+        "AA_ID": "AA101",
+        "AA_No": 1,
+        "AA_Action": "VERIFY",
+        "AA_TargetType": "STUDENT",
+        "AA_TargetID": "U103",
+        "AA_At": "2026-08-06 10:00:00",
+        "AA_Remark": "College ID matched",
+        "U_ID": "U101",
+        "_id": "AA101"
+      },
+      {
+        "AA_ID": "AA102",
+        "AA_No": 1,
+        "AA_Action": "VERIFY",
+        "AA_TargetType": "STUDENT",
+        "AA_TargetID": "U104",
+        "AA_At": "2026-08-07 10:30:00",
+        "AA_Remark": "College ID matched",
+        "U_ID": "U102",
+        "_id": "AA102"
+      },
+      {
+        "AA_ID": "AA103",
+        "AA_No": 2,
+        "AA_Action": "RESOLVE_REPORT",
+        "AA_TargetType": "REPORT",
+        "AA_TargetID": "RP101",
+        "AA_At": "2026-09-14 11:00:00",
+        "AA_Remark": "Seller corrected the edition",
+        "U_ID": "U101",
+        "_id": "AA103"
+      },
+      {
+        "AA_ID": "AA104",
+        "AA_No": 2,
+        "AA_Action": "RESOLVE_REPORT",
+        "AA_TargetType": "REPORT",
+        "AA_TargetID": "RP103",
+        "AA_At": "2026-09-19 12:15:00",
+        "AA_Remark": "No issue found",
+        "U_ID": "U102",
+        "_id": "AA104"
+      },
+      {
+        "AA_ID": "AA105",
+        "AA_No": 3,
+        "AA_Action": "REVIEW_FLAG",
+        "AA_TargetType": "FRAUD_FLAG",
+        "AA_TargetID": "FF101",
+        "AA_At": "2026-09-17 09:40:00",
+        "AA_Remark": "Price checked, no problem",
+        "U_ID": "U101",
+        "_id": "AA105"
+      }
+    ],
+    "bill": [
+      {
+        "Bill_ID": "BL101",
+        "Bill_No": "CK-2026-0001",
+        "Bill_IssuedOn": "2026-09-08 18:05:00",
+        "Bill_Amount": 600,
+        "Bill_Deposit": null,
+        "Bill_PdfPath": "bills/CK-2026-0001.pdf",
+        "Bill_BuyerEmailedOn": "2026-09-08 18:06:00",
+        "Bill_SellerEmailedOn": "2026-09-08 18:06:00",
+        "Req_ID": "RQ102",
+        "Bk_ID": null,
+        "_id": "BL101"
+      },
+      {
+        "Bill_ID": "BL102",
+        "Bill_No": "CK-2026-0002",
+        "Bill_IssuedOn": "2026-09-11 17:35:00",
+        "Bill_Amount": 1200,
+        "Bill_Deposit": null,
+        "Bill_PdfPath": "bills/CK-2026-0002.pdf",
+        "Bill_BuyerEmailedOn": "2026-09-11 17:36:00",
+        "Bill_SellerEmailedOn": "2026-09-11 17:36:00",
+        "Req_ID": "RQ104",
+        "Bk_ID": null,
+        "_id": "BL102"
+      },
+      {
+        "Bill_ID": "BL103",
+        "Bill_No": "CK-2026-0003",
+        "Bill_IssuedOn": "2026-09-15 18:05:00",
+        "Bill_Amount": 160,
+        "Bill_Deposit": 500,
+        "Bill_PdfPath": "bills/CK-2026-0003.pdf",
+        "Bill_BuyerEmailedOn": "2026-09-15 18:06:00",
+        "Bill_SellerEmailedOn": "2026-09-15 18:06:00",
+        "Req_ID": null,
+        "Bk_ID": "BK101",
+        "_id": "BL103"
+      },
+      {
+        "Bill_ID": "BL104",
+        "Bill_No": "CK-2026-0004",
+        "Bill_IssuedOn": "2026-10-19 10:50:40",
+        "Bill_Amount": 195,
+        "Bill_Deposit": null,
+        "Bill_PdfPath": "bills/BL104.pdf",
+        "Bill_BuyerEmailedOn": null,
+        "Bill_SellerEmailedOn": null,
+        "Req_ID": "RQ109",
+        "Bk_ID": null,
+        "_id": "BL104"
+      }
+    ],
+    "branch": [
+      {
+        "Br_ID": "B101",
+        "Br_Name": "Computer Science and Engineering",
+        "Br_Code": "CSE",
+        "_id": "B101"
+      },
+      {
+        "Br_ID": "B102",
+        "Br_Name": "Artificial Intelligence and Machine Learning",
+        "Br_Code": "AIML",
+        "_id": "B102"
+      },
+      {
+        "Br_ID": "B103",
+        "Br_Name": "Electronics and Telecommunication",
+        "Br_Code": "ENTC",
+        "_id": "B103"
+      },
+      {
+        "Br_ID": "B104",
+        "Br_Name": "Mechanical Engineering",
+        "Br_Code": "MECH",
+        "_id": "B104"
+      },
+      {
+        "Br_ID": "B105",
+        "Br_Name": "All Branches",
+        "Br_Code": "ALL",
+        "_id": "B105"
+      },
+      {
+        "Br_ID": "B106",
+        "Br_Name": "Civil Engineering",
+        "Br_Code": "CIVIL",
+        "_id": "B106"
+      },
+      {
+        "Br_ID": "B107",
+        "Br_Name": "Robotics and Automation",
+        "Br_Code": "RNA",
+        "_id": "B107"
+      }
+    ],
+    "bundle": [
+      {
+        "Bun_ID": "BN101",
+        "Bun_Name": "Semester 3 CSE Kit",
+        "Bun_DiscountPercent": 40,
+        "Bun_Status": "AVAILABLE",
+        "Bun_CreatedOn": "2026-09-17",
+        "U_ID": "U103",
+        "_id": "BN101"
+      },
+      {
+        "Bun_ID": "BN102",
+        "Bun_Name": "Electronics Starter Kit",
+        "Bun_DiscountPercent": 40,
+        "Bun_Status": "AVAILABLE",
+        "Bun_CreatedOn": "2026-09-18",
+        "U_ID": "U107",
+        "_id": "BN102"
+      }
+    ],
+    "buy_request": [
+      {
+        "Req_ID": "RQ101",
+        "Req_RequestedOn": "2026-09-14 09:30:00",
+        "Req_Message": "Need it for DBMS",
+        "Req_Type": "BUY",
+        "Req_OfferedPrice": null,
+        "Req_CounterPrice": null,
+        "Req_Status": "EXPIRED",
+        "Req_ExpiresOn": "2026-09-17",
+        "Req_DecidedOn": null,
+        "Req_HandoverLocation": null,
+        "Req_HandoverTime": null,
+        "U_ID": "U104",
+        "I_ID": "I102",
+        "Bun_ID": null,
+        "Swap_I_ID": null,
+        "_id": "RQ101"
+      },
+      {
+        "Req_ID": "RQ102",
+        "Req_RequestedOn": "2026-09-06 11:05:00",
+        "Req_Message": "Is it negotiable?",
+        "Req_Type": "BUY",
+        "Req_OfferedPrice": null,
+        "Req_CounterPrice": null,
+        "Req_Status": "ACCEPTED",
+        "Req_ExpiresOn": "2026-09-09",
+        "Req_DecidedOn": "2026-09-07 16:40:00",
+        "Req_HandoverLocation": "Hostel A Lobby",
+        "Req_HandoverTime": "2026-09-08 18:00:00",
+        "U_ID": "U105",
+        "I_ID": "I103",
+        "Bun_ID": null,
+        "Swap_I_ID": null,
+        "_id": "RQ102"
+      },
+      {
+        "Req_ID": "RQ103",
+        "Req_RequestedOn": "2026-09-11 14:00:00",
+        "Req_Message": "Can you take 250?",
+        "Req_Type": "OFFER",
+        "Req_OfferedPrice": 250,
+        "Req_CounterPrice": null,
+        "Req_Status": "REJECTED",
+        "Req_ExpiresOn": "2026-09-14",
+        "Req_DecidedOn": "2026-09-12 08:50:00",
+        "Req_HandoverLocation": null,
+        "Req_HandoverTime": null,
+        "U_ID": "U105",
+        "I_ID": "I101",
+        "Bun_ID": null,
+        "Swap_I_ID": null,
+        "_id": "RQ103"
+      },
+      {
+        "Req_ID": "RQ104",
+        "Req_RequestedOn": "2026-09-09 12:10:00",
+        "Req_Message": "Can pick up today",
+        "Req_Type": "BUY",
+        "Req_OfferedPrice": null,
+        "Req_CounterPrice": null,
+        "Req_Status": "ACCEPTED",
+        "Req_ExpiresOn": "2026-09-12",
+        "Req_DecidedOn": "2026-09-10 09:00:00",
+        "Req_HandoverLocation": "Hostel B Gate",
+        "Req_HandoverTime": "2026-09-11 17:30:00",
+        "U_ID": "U106",
+        "I_ID": "I105",
+        "Bun_ID": null,
+        "Swap_I_ID": null,
+        "_id": "RQ104"
+      },
+      {
+        "Req_ID": "RQ105",
+        "Req_RequestedOn": "2026-09-16 10:20:00",
+        "Req_Message": "Please reply",
+        "Req_Type": "BUY",
+        "Req_OfferedPrice": null,
+        "Req_CounterPrice": null,
+        "Req_Status": "EXPIRED",
+        "Req_ExpiresOn": "2026-09-19",
+        "Req_DecidedOn": null,
+        "Req_HandoverLocation": null,
+        "Req_HandoverTime": null,
+        "U_ID": "U106",
+        "I_ID": "I104",
+        "Bun_ID": null,
+        "Swap_I_ID": null,
+        "_id": "RQ105"
+      },
+      {
+        "Req_ID": "RQ106",
+        "Req_RequestedOn": "2026-09-17 15:00:00",
+        "Req_Message": "Swap with my drafter kit?",
+        "Req_Type": "SWAP",
+        "Req_OfferedPrice": null,
+        "Req_CounterPrice": null,
+        "Req_Status": "EXPIRED",
+        "Req_ExpiresOn": "2026-09-20",
+        "Req_DecidedOn": null,
+        "Req_HandoverLocation": null,
+        "Req_HandoverTime": null,
+        "U_ID": "U107",
+        "I_ID": "I102",
+        "Bun_ID": null,
+        "Swap_I_ID": "I106",
+        "_id": "RQ106"
+      },
+      {
+        "Req_ID": "RQ107",
+        "Req_RequestedOn": "2026-09-18 10:10:00",
+        "Req_Message": "Can I get it for 120?",
+        "Req_Type": "OFFER",
+        "Req_OfferedPrice": 120,
+        "Req_CounterPrice": 135,
+        "Req_Status": "EXPIRED",
+        "Req_ExpiresOn": "2026-09-21",
+        "Req_DecidedOn": "2026-09-18 19:00:00",
+        "Req_HandoverLocation": null,
+        "Req_HandoverTime": null,
+        "U_ID": "U106",
+        "I_ID": "I107",
+        "Bun_ID": null,
+        "Swap_I_ID": null,
+        "_id": "RQ107"
+      },
+      {
+        "Req_ID": "RQ108",
+        "Req_RequestedOn": "2026-09-19 12:00:00",
+        "Req_Message": "Want the whole kit",
+        "Req_Type": "BUY",
+        "Req_OfferedPrice": null,
+        "Req_CounterPrice": null,
+        "Req_Status": "EXPIRED",
+        "Req_ExpiresOn": "2026-09-22",
+        "Req_DecidedOn": null,
+        "Req_HandoverLocation": null,
+        "Req_HandoverTime": null,
+        "U_ID": "U106",
+        "I_ID": null,
+        "Bun_ID": "BN102",
+        "Swap_I_ID": null,
+        "_id": "RQ108"
+      },
+      {
+        "Req_ID": "RQ109",
+        "Req_RequestedOn": "2026-10-19 10:47:33",
+        "Req_Message": "",
+        "Req_Type": "BUY",
+        "Req_OfferedPrice": null,
+        "Req_CounterPrice": null,
+        "Req_Status": "ACCEPTED",
+        "Req_ExpiresOn": "2026-10-22",
+        "Req_DecidedOn": "2026-10-19 10:48:14",
+        "Req_HandoverLocation": "Library",
+        "Req_HandoverTime": "2026-10-20 11:00:00",
+        "U_ID": "U111",
+        "I_ID": "I111",
+        "Bun_ID": null,
+        "Swap_I_ID": null,
+        "_id": "RQ109"
+      }
+    ],
+    "category": [
+      {
+        "Cat_ID": "CA101",
+        "Cat_Name": "Textbooks",
+        "Cat_IsAcademic": 1,
+        "Cat_IsRentable": 0,
+        "Cat_ParentID": null,
+        "_id": "CA101"
+      },
+      {
+        "Cat_ID": "CA102",
+        "Cat_Name": "Reference Books",
+        "Cat_IsAcademic": 1,
+        "Cat_IsRentable": 0,
+        "Cat_ParentID": "CA101",
+        "_id": "CA102"
+      },
+      {
+        "Cat_ID": "CA103",
+        "Cat_Name": "Engineering Tools",
+        "Cat_IsAcademic": 1,
+        "Cat_IsRentable": 1,
+        "Cat_ParentID": null,
+        "_id": "CA103"
+      },
+      {
+        "Cat_ID": "CA104",
+        "Cat_Name": "Cycles",
+        "Cat_IsAcademic": 0,
+        "Cat_IsRentable": 1,
+        "Cat_ParentID": null,
+        "_id": "CA104"
+      },
+      {
+        "Cat_ID": "CA105",
+        "Cat_Name": "Hostel Furniture",
+        "Cat_IsAcademic": 0,
+        "Cat_IsRentable": 0,
+        "Cat_ParentID": null,
+        "_id": "CA105"
+      },
+      {
+        "Cat_ID": "CA106",
+        "Cat_Name": "Notes",
+        "Cat_IsAcademic": 1,
+        "Cat_IsRentable": 0,
+        "Cat_ParentID": null,
+        "_id": "CA106"
+      },
+      {
+        "Cat_ID": "CA107",
+        "Cat_Name": "Previous Year Papers",
+        "Cat_IsAcademic": 1,
+        "Cat_IsRentable": 0,
+        "Cat_ParentID": null,
+        "_id": "CA107"
+      },
+      {
+        "Cat_ID": "CA108",
+        "Cat_Name": "Hardware Components",
+        "Cat_IsAcademic": 1,
+        "Cat_IsRentable": 1,
+        "Cat_ParentID": null,
+        "_id": "CA108"
+      },
+      {
+        "Cat_ID": "CA109",
+        "Cat_Name": "Lab, Outdoor and Formal Wear",
+        "Cat_IsAcademic": 0,
+        "Cat_IsRentable": 1,
+        "Cat_ParentID": null,
+        "_id": "CA109"
+      },
+      {
+        "Cat_ID": "CA110",
+        "Cat_Name": "Electronics and Gadgets",
+        "Cat_IsAcademic": 0,
+        "Cat_IsRentable": 1,
+        "Cat_ParentID": null,
+        "_id": "CA110"
+      },
+      {
+        "Cat_ID": "CA111",
+        "Cat_Name": "Clothing and Bags",
+        "Cat_IsAcademic": 0,
+        "Cat_IsRentable": 0,
+        "Cat_ParentID": null,
+        "_id": "CA111"
+      }
+    ],
+    "fraud_flag": [
+      {
+        "FF_ID": "FF101",
+        "FF_Reason": "PRICE_ABOVE_GUIDE",
+        "FF_RaisedOn": "2026-09-16",
+        "FF_Status": "CLEARED",
+        "FF_Note": "Original price proved by the bill",
+        "U_ID": "U107",
+        "_id": "FF101"
+      },
+      {
+        "FF_ID": "FF102",
+        "FF_Reason": "MANY_REJECTIONS",
+        "FF_RaisedOn": "2026-09-19",
+        "FF_Status": "OPEN",
+        "FF_Note": null,
+        "U_ID": "U105",
+        "_id": "FF102"
+      },
+      {
+        "FF_ID": "FF103",
+        "FF_Reason": "OTHER",
+        "FF_RaisedOn": "2026-09-20",
+        "FF_Status": "OPEN",
+        "FF_Note": null,
+        "U_ID": "U106",
+        "_id": "FF103"
+      }
+    ],
+    "general_item": [
+      {
+        "I_ID": "I104",
+        "GI_Brand": "Hero",
+        "GI_AgeInMonths": 24,
+        "_id": "I104"
+      },
+      {
+        "I_ID": "I105",
+        "GI_Brand": "Nilkamal",
+        "GI_AgeInMonths": 12,
+        "_id": "I105"
+      }
+    ],
+    "institute": [
+      {
+        "Ins_ID": "IN101",
+        "Ins_Name": "Symbiosis Institute of Technology",
+        "Ins_Code": "SIT",
+        "_id": "IN101"
+      },
+      {
+        "Ins_ID": "IN102",
+        "Ins_Name": "Symbiosis Centre for Information Technology",
+        "Ins_Code": "SCIT",
+        "_id": "IN102"
+      },
+      {
+        "Ins_ID": "IN103",
+        "Ins_Name": "Symbiosis Institute of Computer Studies and Research",
+        "Ins_Code": "SICSR",
+        "_id": "IN103"
+      },
+      {
+        "Ins_ID": "IN104",
+        "Ins_Name": "Symbiosis Institute of Business Management",
+        "Ins_Code": "SIBM",
+        "_id": "IN104"
+      },
+      {
+        "Ins_ID": "IN105",
+        "Ins_Name": "Symbiosis Law School",
+        "Ins_Code": "SLS",
+        "_id": "IN105"
+      }
+    ],
+    "item": [
+      {
+        "I_ID": "I101",
+        "I_Name": "Data Structures Textbook",
+        "I_Description": "Weiss textbook, 2nd edition, clean pages, no writing inside",
+        "I_OriginalPrice": 650,
+        "I_SellingPrice": 300,
+        "I_Condition": "GOOD",
+        "I_PickupLocation": "Library Gate",
+        "I_Status": "AVAILABLE",
+        "I_Kind": "ACADEMIC",
+        "I_ListedOn": "2026-09-10",
+        "U_ID": "U103",
+        "Cat_ID": "CA101",
+        "Bun_ID": "BN101",
+        "_id": "I101"
+      },
+      {
+        "I_ID": "I102",
+        "I_Name": "DBMS Textbook",
+        "I_Description": "Database System Concepts, 6th edition, light pencil notes",
+        "I_OriginalPrice": 800,
+        "I_SellingPrice": 350,
+        "I_Condition": "GOOD",
+        "I_PickupLocation": "Library Gate",
+        "I_Status": "AVAILABLE",
+        "I_Kind": "ACADEMIC",
+        "I_ListedOn": "2026-09-12",
+        "U_ID": "U103",
+        "Cat_ID": "CA101",
+        "Bun_ID": null,
+        "_id": "I102"
+      },
+      {
+        "I_ID": "I103",
+        "I_Name": "Scientific Calculator",
+        "I_Description": "Casio fx-991 scientific calculator with cover, works perfectly",
+        "I_OriginalPrice": 1200,
+        "I_SellingPrice": 600,
+        "I_Condition": "GOOD",
+        "I_PickupLocation": "Hostel A Lobby",
+        "I_Status": "SOLD",
+        "I_Kind": "ACADEMIC",
+        "I_ListedOn": "2026-09-05",
+        "U_ID": "U107",
+        "Cat_ID": "CA103",
+        "Bun_ID": null,
+        "_id": "I103"
+      },
+      {
+        "I_ID": "I104",
+        "I_Name": "Hero Cycle",
+        "I_Description": "Hero cycle, single owner, new tyres fitted last year",
+        "I_OriginalPrice": 4000,
+        "I_SellingPrice": 2500,
+        "I_Condition": "FAIR",
+        "I_PickupLocation": "Hostel B Parking",
+        "I_Status": "AVAILABLE",
+        "I_Kind": "GENERAL",
+        "I_ListedOn": "2026-09-15",
+        "U_ID": "U107",
+        "Cat_ID": "CA104",
+        "Bun_ID": null,
+        "_id": "I104"
+      },
+      {
+        "I_ID": "I105",
+        "I_Name": "Study Table",
+        "I_Description": "Foldable study table, sturdy, suitable for a hostel room",
+        "I_OriginalPrice": 2500,
+        "I_SellingPrice": 1200,
+        "I_Condition": "GOOD",
+        "I_PickupLocation": "Hostel B Gate",
+        "I_Status": "SOLD",
+        "I_Kind": "GENERAL",
+        "I_ListedOn": "2026-09-08",
+        "U_ID": "U103",
+        "Cat_ID": "CA105",
+        "Bun_ID": null,
+        "_id": "I105"
+      },
+      {
+        "I_ID": "I106",
+        "I_Name": "Drafter Kit",
+        "I_Description": "Mini drafter with two set squares and a protractor in a box",
+        "I_OriginalPrice": 500,
+        "I_SellingPrice": 200,
+        "I_Condition": "GOOD",
+        "I_PickupLocation": "Library Gate",
+        "I_Status": "AVAILABLE",
+        "I_Kind": "ACADEMIC",
+        "I_ListedOn": "2026-09-16",
+        "U_ID": "U107",
+        "Cat_ID": "CA103",
+        "Bun_ID": null,
+        "_id": "I106"
+      },
+      {
+        "I_ID": "I107",
+        "I_Name": "Data Structures Notes",
+        "I_Description": "Handwritten notes with solved examples, 90 pages, neat writing",
+        "I_OriginalPrice": 250,
+        "I_SellingPrice": 150,
+        "I_Condition": "GOOD",
+        "I_PickupLocation": "Library Gate",
+        "I_Status": "AVAILABLE",
+        "I_Kind": "ACADEMIC",
+        "I_ListedOn": "2026-09-17",
+        "U_ID": "U103",
+        "Cat_ID": "CA106",
+        "Bun_ID": "BN101",
+        "_id": "I107"
+      },
+      {
+        "I_ID": "I108",
+        "I_Name": "DS Previous Year Papers",
+        "I_Description": "Solved question papers of the last three years with answers",
+        "I_OriginalPrice": 200,
+        "I_SellingPrice": 100,
+        "I_Condition": "GOOD",
+        "I_PickupLocation": "Library Gate",
+        "I_Status": "AVAILABLE",
+        "I_Kind": "ACADEMIC",
+        "I_ListedOn": "2026-09-17",
+        "U_ID": "U103",
+        "Cat_ID": "CA107",
+        "Bun_ID": "BN101",
+        "_id": "I108"
+      },
+      {
+        "I_ID": "I109",
+        "I_Name": "Arduino Uno Starter Kit",
+        "I_Description": "Uno board, breadboard, 20 LEDs, resistors and jumper wires",
+        "I_OriginalPrice": 1500,
+        "I_SellingPrice": 700,
+        "I_Condition": "GOOD",
+        "I_PickupLocation": "Hostel A Lobby",
+        "I_Status": "AVAILABLE",
+        "I_Kind": "ACADEMIC",
+        "I_ListedOn": "2026-09-18",
+        "U_ID": "U107",
+        "Cat_ID": "CA108",
+        "Bun_ID": "BN102",
+        "_id": "I109"
+      },
+      {
+        "I_ID": "I110",
+        "I_Name": "Digital Electronics Notes",
+        "I_Description": "Chapter-wise notes with solved circuits, 80 pages, clear diagrams",
+        "I_OriginalPrice": 200,
+        "I_SellingPrice": 120,
+        "I_Condition": "GOOD",
+        "I_PickupLocation": "Library Gate",
+        "I_Status": "AVAILABLE",
+        "I_Kind": "ACADEMIC",
+        "I_ListedOn": "2026-09-18",
+        "U_ID": "U107",
+        "Cat_ID": "CA106",
+        "Bun_ID": "BN102",
+        "_id": "I110"
+      },
+      {
+        "I_ID": "I111",
+        "I_Name": "Arduino Uno R3",
+        "I_Description": "Arduino Uno R3 Board Projectss",
+        "I_OriginalPrice": 300,
+        "I_SellingPrice": 195,
+        "I_Condition": "GOOD",
+        "I_PickupLocation": "Library",
+        "I_Status": "SOLD",
+        "I_Kind": "ACADEMIC",
+        "I_ListedOn": "2026-10-19",
+        "U_ID": "U109",
+        "Cat_ID": "CA108",
+        "Bun_ID": null,
+        "_id": "I111"
+      }
+    ],
+    "item_image": [
+      {
+        "Img_ID": "IM101",
+        "Img_No": 1,
+        "Img_Path": "images/products/c1-v1.jpg",
+        "Img_IsPrimary": 1,
+        "I_ID": "I101",
+        "_id": "IM101"
+      },
+      {
+        "Img_ID": "IM102",
+        "Img_No": 2,
+        "Img_Path": "images/products/c1-v2.jpg",
+        "Img_IsPrimary": 0,
+        "I_ID": "I101",
+        "_id": "IM102"
+      },
+      {
+        "Img_ID": "IM103",
+        "Img_No": 3,
+        "Img_Path": "images/products/c1-v3.jpg",
+        "Img_IsPrimary": 0,
+        "I_ID": "I101",
+        "_id": "IM103"
+      },
+      {
+        "Img_ID": "IM104",
+        "Img_No": 1,
+        "Img_Path": "images/products/c1-v4.jpg",
+        "Img_IsPrimary": 1,
+        "I_ID": "I102",
+        "_id": "IM104"
+      },
+      {
+        "Img_ID": "IM105",
+        "Img_No": 2,
+        "Img_Path": "images/products/c1-v1.jpg",
+        "Img_IsPrimary": 0,
+        "I_ID": "I102",
+        "_id": "IM105"
+      },
+      {
+        "Img_ID": "IM106",
+        "Img_No": 3,
+        "Img_Path": "images/products/c1-v2.jpg",
+        "Img_IsPrimary": 0,
+        "I_ID": "I102",
+        "_id": "IM106"
+      },
+      {
+        "Img_ID": "IM107",
+        "Img_No": 1,
+        "Img_Path": "images/products/c4-v1.jpg",
+        "Img_IsPrimary": 1,
+        "I_ID": "I104",
+        "_id": "IM107"
+      },
+      {
+        "Img_ID": "IM108",
+        "Img_No": 2,
+        "Img_Path": "images/products/c4-v2.jpg",
+        "Img_IsPrimary": 0,
+        "I_ID": "I104",
+        "_id": "IM108"
+      },
+      {
+        "Img_ID": "IM109",
+        "Img_No": 3,
+        "Img_Path": "images/products/c4-v3.jpg",
+        "Img_IsPrimary": 0,
+        "I_ID": "I104",
+        "_id": "IM109"
+      },
+      {
+        "Img_ID": "IM110",
+        "Img_No": 1,
+        "Img_Path": "images/products/c8-v1.jpg",
+        "Img_IsPrimary": 1,
+        "I_ID": "I111",
+        "_id": "IM110"
+      },
+      {
+        "Img_ID": "IM111",
+        "Img_No": 2,
+        "Img_Path": "images/products/c8-v2.jpg",
+        "Img_IsPrimary": 0,
+        "I_ID": "I111",
+        "_id": "IM111"
+      },
+      {
+        "Img_ID": "IM112",
+        "Img_No": 3,
+        "Img_Path": "images/products/c8-v3.jpg",
+        "Img_IsPrimary": 0,
+        "I_ID": "I111",
+        "_id": "IM112"
+      }
+    ],
+    "item_recommendation": [
+      {
+        "IR_ID": "IR101",
+        "IR_Score": 100,
+        "IR_GeneratedOn": "2026-09-10",
+        "I_ID": "I101",
+        "U_ID": "U104",
+        "_id": "IR101"
+      },
+      {
+        "IR_ID": "IR102",
+        "IR_Score": 85,
+        "IR_GeneratedOn": "2026-09-10",
+        "I_ID": "I101",
+        "U_ID": "U105",
+        "_id": "IR102"
+      },
+      {
+        "IR_ID": "IR103",
+        "IR_Score": 100,
+        "IR_GeneratedOn": "2026-09-12",
+        "I_ID": "I102",
+        "U_ID": "U104",
+        "_id": "IR103"
+      },
+      {
+        "IR_ID": "IR104",
+        "IR_Score": 85,
+        "IR_GeneratedOn": "2026-09-12",
+        "I_ID": "I102",
+        "U_ID": "U105",
+        "_id": "IR104"
+      },
+      {
+        "IR_ID": "IR105",
+        "IR_Score": 60,
+        "IR_GeneratedOn": "2026-09-16",
+        "I_ID": "I106",
+        "U_ID": "U106",
+        "_id": "IR105"
+      }
+    ],
+    "item_status_log": [
+      {
+        "Log_ID": "LG101",
+        "Log_No": 1,
+        "Log_OldStatus": null,
+        "Log_NewStatus": "AVAILABLE",
+        "Log_ChangedAt": "2026-09-12 10:15:00",
+        "Log_Remark": "Item listed",
+        "I_ID": "I102",
+        "U_ID": "U103",
+        "_id": "LG101"
+      },
+      {
+        "Log_ID": "LG102",
+        "Log_No": 2,
+        "Log_OldStatus": "AVAILABLE",
+        "Log_NewStatus": "BUY_REQUESTED",
+        "Log_ChangedAt": "2026-09-14 09:30:00",
+        "Log_Remark": "Buy request received",
+        "I_ID": "I102",
+        "U_ID": null,
+        "_id": "LG102"
+      },
+      {
+        "Log_ID": "LG103",
+        "Log_No": 1,
+        "Log_OldStatus": null,
+        "Log_NewStatus": "AVAILABLE",
+        "Log_ChangedAt": "2026-09-05 18:20:00",
+        "Log_Remark": "Item listed",
+        "I_ID": "I103",
+        "U_ID": "U107",
+        "_id": "LG103"
+      },
+      {
+        "Log_ID": "LG104",
+        "Log_No": 2,
+        "Log_OldStatus": "AVAILABLE",
+        "Log_NewStatus": "BUY_REQUESTED",
+        "Log_ChangedAt": "2026-09-06 11:05:00",
+        "Log_Remark": "Buy request received",
+        "I_ID": "I103",
+        "U_ID": null,
+        "_id": "LG104"
+      },
+      {
+        "Log_ID": "LG105",
+        "Log_No": 3,
+        "Log_OldStatus": "BUY_REQUESTED",
+        "Log_NewStatus": "ACCEPTED",
+        "Log_ChangedAt": "2026-09-07 16:40:00",
+        "Log_Remark": "Request accepted",
+        "I_ID": "I103",
+        "U_ID": "U107",
+        "_id": "LG105"
+      },
+      {
+        "Log_ID": "LG106",
+        "Log_No": 3,
+        "Log_OldStatus": "BUY_REQUESTED",
+        "Log_NewStatus": "AVAILABLE",
+        "Log_ChangedAt": "2026-10-18 22:37:27",
+        "Log_Remark": "Back on sale",
+        "I_ID": "I102",
+        "U_ID": null,
+        "_id": "LG106"
+      },
+      {
+        "Log_ID": "LG107",
+        "Log_No": 1,
+        "Log_OldStatus": null,
+        "Log_NewStatus": "AVAILABLE",
+        "Log_ChangedAt": "2026-10-19 01:24:17",
+        "Log_Remark": "Item listed",
+        "I_ID": "I111",
+        "U_ID": "U109",
+        "_id": "LG107"
+      },
+      {
+        "Log_ID": "LG108",
+        "Log_No": 2,
+        "Log_OldStatus": "AVAILABLE",
+        "Log_NewStatus": "BUY_REQUESTED",
+        "Log_ChangedAt": "2026-10-19 10:47:34",
+        "Log_Remark": "Buy request received",
+        "I_ID": "I111",
+        "U_ID": null,
+        "_id": "LG108"
+      },
+      {
+        "Log_ID": "LG109",
+        "Log_No": 3,
+        "Log_OldStatus": "BUY_REQUESTED",
+        "Log_NewStatus": "ACCEPTED",
+        "Log_ChangedAt": "2026-10-19 10:48:14",
+        "Log_Remark": "Request accepted",
+        "I_ID": "I111",
+        "U_ID": null,
+        "_id": "LG109"
+      },
+      {
+        "Log_ID": "LG110",
+        "Log_No": 4,
+        "Log_OldStatus": "ACCEPTED",
+        "Log_NewStatus": "SOLD",
+        "Log_ChangedAt": "2026-10-19 10:50:40",
+        "Log_Remark": "Handover done, item sold",
+        "I_ID": "I111",
+        "U_ID": null,
+        "_id": "LG110"
+      }
+    ],
+    "price_history": [
+      {
+        "PH_ID": "PH101",
+        "PH_OldPrice": 350,
+        "PH_NewPrice": 300,
+        "PH_ChangedOn": "2026-09-14",
+        "PH_Reason": "SELLER_EDIT",
+        "I_ID": "I101",
+        "_id": "PH101"
+      },
+      {
+        "PH_ID": "PH102",
+        "PH_OldPrice": 2800,
+        "PH_NewPrice": 2500,
+        "PH_ChangedOn": "2026-09-22",
+        "PH_Reason": "SELLER_EDIT",
+        "I_ID": "I104",
+        "_id": "PH102"
+      },
+      {
+        "PH_ID": "PH103",
+        "PH_OldPrice": 250,
+        "PH_NewPrice": 200,
+        "PH_ChangedOn": "2026-09-25",
+        "PH_Reason": "CLEAROUT",
+        "I_ID": "I106",
+        "_id": "PH103"
+      },
+      {
+        "PH_ID": "PH104",
+        "PH_OldPrice": 300,
+        "PH_NewPrice": 290,
+        "PH_ChangedOn": "2026-10-18",
+        "PH_Reason": "SELLER_EDIT",
+        "I_ID": "I101",
+        "_id": "PH104"
+      },
+      {
+        "PH_ID": "PH105",
+        "PH_OldPrice": 290,
+        "PH_NewPrice": 300,
+        "PH_ChangedOn": "2026-10-18",
+        "PH_Reason": "SELLER_EDIT",
+        "I_ID": "I101",
+        "_id": "PH105"
+      }
+    ],
+    "rating": [
+      {
+        "Rat_ID": "RT101",
+        "Rat_Stars": 5,
+        "Rat_Review": "Calculator exactly as described",
+        "Rat_RatedOn": "2026-09-09",
+        "Req_ID": "RQ102",
+        "_id": "RT101"
+      },
+      {
+        "Rat_ID": "RT102",
+        "Rat_Stars": 4,
+        "Rat_Review": "Table in good condition",
+        "Rat_RatedOn": "2026-09-12",
+        "Req_ID": "RQ104",
+        "_id": "RT102"
+      }
+    ],
+    "rental_booking": [
+      {
+        "Bk_ID": "BK101",
+        "Bk_StartDate": "2026-09-12",
+        "Bk_EndDate": "2026-09-15",
+        "Bk_RequestedOn": "2026-09-10 10:00:00",
+        "Bk_Status": "RETURNED",
+        "Bk_HandedOverOn": "2026-09-12 09:00:00",
+        "Bk_ReturnedOn": "2026-09-15 18:00:00",
+        "Bk_DamageNote": null,
+        "RI_ID": "RI101",
+        "U_ID": "U104",
+        "_id": "BK101"
+      },
+      {
+        "Bk_ID": "BK102",
+        "Bk_StartDate": "2026-09-17",
+        "Bk_EndDate": "2026-09-19",
+        "Bk_RequestedOn": "2026-09-16 18:30:00",
+        "Bk_Status": "HANDED_OVER",
+        "Bk_HandedOverOn": "2026-09-17 10:00:00",
+        "Bk_ReturnedOn": null,
+        "Bk_DamageNote": null,
+        "RI_ID": "RI103",
+        "U_ID": "U106",
+        "_id": "BK102"
+      },
+      {
+        "Bk_ID": "BK103",
+        "Bk_StartDate": "2026-09-22",
+        "Bk_EndDate": "2026-09-24",
+        "Bk_RequestedOn": "2026-09-19 09:15:00",
+        "Bk_Status": "PENDING",
+        "Bk_HandedOverOn": null,
+        "Bk_ReturnedOn": null,
+        "Bk_DamageNote": null,
+        "RI_ID": "RI102",
+        "U_ID": "U105",
+        "_id": "BK103"
+      },
+      {
+        "Bk_ID": "BK104",
+        "Bk_StartDate": "2026-09-20",
+        "Bk_EndDate": "2026-09-22",
+        "Bk_RequestedOn": "2026-09-18 14:40:00",
+        "Bk_Status": "ACCEPTED",
+        "Bk_HandedOverOn": null,
+        "Bk_ReturnedOn": null,
+        "Bk_DamageNote": null,
+        "RI_ID": "RI104",
+        "U_ID": "U105",
+        "_id": "BK104"
+      },
+      {
+        "Bk_ID": "BK105",
+        "Bk_StartDate": "2026-09-10",
+        "Bk_EndDate": "2026-09-11",
+        "Bk_RequestedOn": "2026-09-08 20:00:00",
+        "Bk_Status": "REJECTED",
+        "Bk_HandedOverOn": null,
+        "Bk_ReturnedOn": null,
+        "Bk_DamageNote": null,
+        "RI_ID": "RI105",
+        "U_ID": "U106",
+        "_id": "BK105"
+      }
+    ],
+    "rental_image": [
+      {
+        "RImg_ID": "RM101",
+        "RImg_No": 1,
+        "RImg_Path": "images/products/c8-v1.jpg",
+        "RImg_IsPrimary": 1,
+        "RI_ID": "RI101",
+        "_id": "RM101"
+      },
+      {
+        "RImg_ID": "RM102",
+        "RImg_No": 2,
+        "RImg_Path": "images/products/c8-v2.jpg",
+        "RImg_IsPrimary": 0,
+        "RI_ID": "RI101",
+        "_id": "RM102"
+      },
+      {
+        "RImg_ID": "RM103",
+        "RImg_No": 3,
+        "RImg_Path": "images/products/c8-v3.jpg",
+        "RImg_IsPrimary": 0,
+        "RI_ID": "RI101",
+        "_id": "RM103"
+      },
+      {
+        "RImg_ID": "RM104",
+        "RImg_No": 1,
+        "RImg_Path": "images/products/c3-v1.jpg",
+        "RImg_IsPrimary": 1,
+        "RI_ID": "RI103",
+        "_id": "RM104"
+      },
+      {
+        "RImg_ID": "RM105",
+        "RImg_No": 2,
+        "RImg_Path": "images/products/c3-v2.jpg",
+        "RImg_IsPrimary": 0,
+        "RI_ID": "RI103",
+        "_id": "RM105"
+      },
+      {
+        "RImg_ID": "RM106",
+        "RImg_No": 3,
+        "RImg_Path": "images/products/c3-v3.jpg",
+        "RImg_IsPrimary": 0,
+        "RI_ID": "RI103",
+        "_id": "RM106"
+      }
+    ],
+    "rental_item": [
+      {
+        "RI_ID": "RI101",
+        "RI_Name": "Raspberry Pi 4 Kit",
+        "RI_Description": "Raspberry Pi 4 (4 GB) with case, charger and 32 GB card",
+        "RI_Condition": "GOOD",
+        "RI_RatePerDay": 40,
+        "RI_Deposit": 500,
+        "RI_MaxDays": 7,
+        "RI_PickupLocation": "Hostel A Lobby",
+        "RI_Status": "AVAILABLE",
+        "RI_ListedOn": "2026-09-12",
+        "U_ID": "U103",
+        "Cat_ID": "CA108",
+        "_id": "RI101"
+      },
+      {
+        "RI_ID": "RI102",
+        "RI_Name": "Digital Multimeter",
+        "RI_Description": "Auto-ranging multimeter with probes, tested and working fine",
+        "RI_Condition": "GOOD",
+        "RI_RatePerDay": 15,
+        "RI_Deposit": 200,
+        "RI_MaxDays": 5,
+        "RI_PickupLocation": "Library Gate",
+        "RI_Status": "AVAILABLE",
+        "RI_ListedOn": "2026-09-13",
+        "U_ID": "U107",
+        "Cat_ID": "CA108",
+        "_id": "RI102"
+      },
+      {
+        "RI_ID": "RI103",
+        "RI_Name": "Graphing Calculator",
+        "RI_Description": "Casio fx-9860 graphing calculator with cover and fresh batteries",
+        "RI_Condition": "GOOD",
+        "RI_RatePerDay": 20,
+        "RI_Deposit": 400,
+        "RI_MaxDays": 7,
+        "RI_PickupLocation": "Library Gate",
+        "RI_Status": "ON_RENT",
+        "RI_ListedOn": "2026-09-10",
+        "U_ID": "U107",
+        "Cat_ID": "CA103",
+        "_id": "RI103"
+      },
+      {
+        "RI_ID": "RI104",
+        "RI_Name": "Trekking Backpack 50L",
+        "RI_Description": "Waterproof 50 litre backpack with rain cover, used on two treks",
+        "RI_Condition": "GOOD",
+        "RI_RatePerDay": 60,
+        "RI_Deposit": 600,
+        "RI_MaxDays": 5,
+        "RI_PickupLocation": "Hostel B Gate",
+        "RI_Status": "AVAILABLE",
+        "RI_ListedOn": "2026-09-14",
+        "U_ID": "U103",
+        "Cat_ID": "CA109",
+        "_id": "RI104"
+      },
+      {
+        "RI_ID": "RI105",
+        "RI_Name": "Formal Blazer (Size 40)",
+        "RI_Description": "Navy formal blazer size 40, dry cleaned, good for interviews",
+        "RI_Condition": "GOOD",
+        "RI_RatePerDay": 50,
+        "RI_Deposit": 500,
+        "RI_MaxDays": 3,
+        "RI_PickupLocation": "Main Gate",
+        "RI_Status": "AVAILABLE",
+        "RI_ListedOn": "2026-09-15",
+        "U_ID": "U107",
+        "Cat_ID": "CA109",
+        "_id": "RI105"
+      }
+    ],
+    "report": [
+      {
+        "Rep_ID": "RP101",
+        "Rep_Reason": "WRONG_INFO",
+        "Rep_Details": "Edition in photo is different",
+        "Rep_ReportedOn": "2026-09-13",
+        "Rep_Status": "RESOLVED",
+        "U_ID": "U104",
+        "I_ID": "I102",
+        "_id": "RP101"
+      },
+      {
+        "Rep_ID": "RP102",
+        "Rep_Reason": "SPAM",
+        "Rep_Details": "Same item listed twice",
+        "Rep_ReportedOn": "2026-09-17",
+        "Rep_Status": "OPEN",
+        "U_ID": "U105",
+        "I_ID": "I104",
+        "_id": "RP102"
+      },
+      {
+        "Rep_ID": "RP103",
+        "Rep_Reason": "FAKE",
+        "Rep_Details": "Price looks wrong",
+        "Rep_ReportedOn": "2026-09-18",
+        "Rep_Status": "DISMISSED",
+        "U_ID": "U106",
+        "I_ID": "I101",
+        "_id": "RP103"
+      }
+    ],
+    "resolves": [
+      {
+        "Res_ID": "RS101",
+        "Res_On": "2026-09-14",
+        "Res_ActionTaken": "Seller corrected the edition",
+        "U_ID": "U101",
+        "Rep_ID": "RP101",
+        "_id": "RS101"
+      },
+      {
+        "Res_ID": "RS102",
+        "Res_On": "2026-09-19",
+        "Res_ActionTaken": "No issue found",
+        "U_ID": "U102",
+        "Rep_ID": "RP103",
+        "_id": "RS102"
+      }
+    ],
+    "reviews_flag": [
+      {
+        "Rv_ID": "RV101",
+        "Rv_On": "2026-09-17",
+        "Rv_Note": "Price checked, no problem",
+        "U_ID": "U101",
+        "FF_ID": "FF101",
+        "_id": "RV101"
+      }
+    ],
+    "site_setting": [
+      {
+        "Set_Key": "CLEAROUT_MODE",
+        "Set_Value": "0",
+        "Set_UpdatedOn": "2026-09-30",
+        "U_ID": "U101",
+        "_id": "CLEAROUT_MODE"
+      }
+    ],
+    "student": [
+      {
+        "U_ID": "U103",
+        "St_CollegeID": "23070122041",
+        "St_NameOnId": "SHARMA AARAV SURESH",
+        "St_Gender": "Male",
+        "St_Age": 21,
+        "St_Year": 3,
+        "St_Semester": 5,
+        "St_VerificationStatus": "VERIFIED",
+        "St_VerificationMethod": "ADMIN",
+        "St_FlagReason": null,
+        "St_IdCardPath": "idcards/u103.jpg",
+        "Br_ID": "B101",
+        "Ins_ID": "IN101",
+        "_id": "U103"
+      },
+      {
+        "U_ID": "U104",
+        "St_CollegeID": "24070122015",
+        "St_NameOnId": "SINGH PRIYA ANIL",
+        "St_Gender": "Female",
+        "St_Age": 20,
+        "St_Year": 2,
+        "St_Semester": 3,
+        "St_VerificationStatus": "VERIFIED",
+        "St_VerificationMethod": "ADMIN",
+        "St_FlagReason": null,
+        "St_IdCardPath": "idcards/u104.jpg",
+        "Br_ID": "B101",
+        "Ins_ID": "IN101",
+        "_id": "U104"
+      },
+      {
+        "U_ID": "U105",
+        "St_CollegeID": "24070122027",
+        "St_NameOnId": "JOSHI KARAN MAHESH",
+        "St_Gender": "Male",
+        "St_Age": 20,
+        "St_Year": 2,
+        "St_Semester": 3,
+        "St_VerificationStatus": "VERIFIED",
+        "St_VerificationMethod": "ADMIN",
+        "St_FlagReason": null,
+        "St_IdCardPath": "idcards/u105.jpg",
+        "Br_ID": "B101",
+        "Ins_ID": "IN101",
+        "_id": "U105"
+      },
+      {
+        "U_ID": "U106",
+        "St_CollegeID": "25070122008",
+        "St_NameOnId": "PATIL SNEHA RAVINDRA",
+        "St_Gender": "Female",
+        "St_Age": 19,
+        "St_Year": 1,
+        "St_Semester": 1,
+        "St_VerificationStatus": "VERIFIED",
+        "St_VerificationMethod": "ADMIN",
+        "St_FlagReason": null,
+        "St_IdCardPath": "idcards/u106.jpg",
+        "Br_ID": "B102",
+        "Ins_ID": "IN101",
+        "_id": "U106"
+      },
+      {
+        "U_ID": "U107",
+        "St_CollegeID": "22070122133",
+        "St_NameOnId": "DESAI VIVEK PRAKASH",
+        "St_Gender": "Male",
+        "St_Age": 22,
+        "St_Year": 4,
+        "St_Semester": 7,
+        "St_VerificationStatus": "VERIFIED",
+        "St_VerificationMethod": "ADMIN",
+        "St_FlagReason": null,
+        "St_IdCardPath": "idcards/u107.jpg",
+        "Br_ID": "B103",
+        "Ins_ID": "IN101",
+        "_id": "U107"
+      },
+      {
+        "U_ID": "U108",
+        "St_CollegeID": "25070122051",
+        "St_NameOnId": "KULKARNI ISHITA SANDEEP",
+        "St_Gender": "Female",
+        "St_Age": 18,
+        "St_Year": 1,
+        "St_Semester": 2,
+        "St_VerificationStatus": "VERIFIED",
+        "St_VerificationMethod": "ID_CARD_AUTO",
+        "St_FlagReason": null,
+        "St_IdCardPath": "idcards/u108.jpg",
+        "Br_ID": "B101",
+        "Ins_ID": "IN101",
+        "_id": "U108"
+      },
+      {
+        "U_ID": "U109",
+        "St_CollegeID": "25070122093",
+        "St_NameOnId": "PHALE JANHAVI UMESH",
+        "St_Gender": "Female",
+        "St_Age": 19,
+        "St_Year": 2,
+        "St_Semester": 3,
+        "St_VerificationStatus": "VERIFIED",
+        "St_VerificationMethod": "ID_CARD_AUTO",
+        "St_FlagReason": null,
+        "St_IdCardPath": "uploads/up179235273191794355.jpeg",
+        "Br_ID": "B101",
+        "Ins_ID": "IN101",
+        "_id": "U109"
+      },
+      {
+        "U_ID": "U110",
+        "St_CollegeID": "25070122096",
+        "St_NameOnId": "KAMYA MAHAKUL",
+        "St_Gender": "Female",
+        "St_Age": 19,
+        "St_Year": 2,
+        "St_Semester": 3,
+        "St_VerificationStatus": "VERIFIED",
+        "St_VerificationMethod": "ID_CARD_AUTO",
+        "St_FlagReason": null,
+        "St_IdCardPath": "uploads/up179238645752190562.jpeg",
+        "Br_ID": "B101",
+        "Ins_ID": "IN101",
+        "_id": "U110"
+      },
+      {
+        "U_ID": "U111",
+        "St_CollegeID": "25070122091",
+        "St_NameOnId": "JAIKRIT SETHI",
+        "St_Gender": "Female",
+        "St_Age": 19,
+        "St_Year": 2,
+        "St_Semester": 3,
+        "St_VerificationStatus": "VERIFIED",
+        "St_VerificationMethod": "ID_CARD_AUTO",
+        "St_FlagReason": null,
+        "St_IdCardPath": "uploads/up179238697703065915.jpeg",
+        "Br_ID": "B101",
+        "Ins_ID": "IN101",
+        "_id": "U111"
+      }
+    ],
+    "subject": [
+      {
+        "Sub_ID": "SB101",
+        "Sub_Name": "Engineering Mathematics",
+        "Sub_Code": "EM101",
+        "_id": "SB101"
+      },
+      {
+        "Sub_ID": "SB102",
+        "Sub_Name": "Data Structures",
+        "Sub_Code": "CS201",
+        "_id": "SB102"
+      },
+      {
+        "Sub_ID": "SB103",
+        "Sub_Name": "Database Management Systems",
+        "Sub_Code": "CS301",
+        "_id": "SB103"
+      },
+      {
+        "Sub_ID": "SB104",
+        "Sub_Name": "Digital Electronics",
+        "Sub_Code": "EC102",
+        "_id": "SB104"
+      },
+      {
+        "Sub_ID": "SB105",
+        "Sub_Name": "Engineering Drawing",
+        "Sub_Code": "ME101",
+        "_id": "SB105"
+      }
+    ],
+    "taught_in": [
+      {
+        "TI_ID": "TI101",
+        "TI_Semester": 1,
+        "Br_ID": "B101",
+        "Sub_ID": "SB101",
+        "_id": "TI101"
+      },
+      {
+        "TI_ID": "TI102",
+        "TI_Semester": 3,
+        "Br_ID": "B101",
+        "Sub_ID": "SB102",
+        "_id": "TI102"
+      },
+      {
+        "TI_ID": "TI103",
+        "TI_Semester": 3,
+        "Br_ID": "B101",
+        "Sub_ID": "SB103",
+        "_id": "TI103"
+      },
+      {
+        "TI_ID": "TI104",
+        "TI_Semester": 3,
+        "Br_ID": "B102",
+        "Sub_ID": "SB102",
+        "_id": "TI104"
+      },
+      {
+        "TI_ID": "TI105",
+        "TI_Semester": 3,
+        "Br_ID": "B103",
+        "Sub_ID": "SB104",
+        "_id": "TI105"
+      }
+    ],
+    "user_phone": [
+      {
+        "UP_ID": "UP101",
+        "UP_PhoneNo": "9876543210",
+        "U_ID": "U103",
+        "_id": "UP101"
+      },
+      {
+        "UP_ID": "UP102",
+        "UP_PhoneNo": "9876543211",
+        "U_ID": "U103",
+        "_id": "UP102"
+      },
+      {
+        "UP_ID": "UP103",
+        "UP_PhoneNo": "9876543212",
+        "U_ID": "U104",
+        "_id": "UP103"
+      },
+      {
+        "UP_ID": "UP104",
+        "UP_PhoneNo": "9876543213",
+        "U_ID": "U105",
+        "_id": "UP104"
+      },
+      {
+        "UP_ID": "UP105",
+        "UP_PhoneNo": "9876543214",
+        "U_ID": "U106",
+        "_id": "UP105"
+      },
+      {
+        "UP_ID": "UP106",
+        "UP_PhoneNo": "9876543215",
+        "U_ID": "U108",
+        "_id": "UP106"
+      },
+      {
+        "UP_ID": "UP107",
+        "UP_PhoneNo": "9699455214",
+        "U_ID": "U109",
+        "_id": "UP107"
+      },
+      {
+        "UP_ID": "UP108",
+        "UP_PhoneNo": "9752031273",
+        "U_ID": "U110",
+        "_id": "UP108"
+      },
+      {
+        "UP_ID": "UP109",
+        "UP_PhoneNo": "8074488420",
+        "U_ID": "U111",
+        "_id": "UP109"
+      }
+    ],
+    "users": [
+      {
+        "U_ID": "U101",
+        "U_FirstName": "Neha",
+        "U_LastName": "Kulkarni",
+        "U_Email": "neha.kulkarni@college.edu.in",
+        "U_PasswordHash": "de860b14d35278b33198699114d498a174ac20c2693d9603f409c0b5c344bc0d",
+        "U_Role": "ADMIN",
+        "U_IsActive": 1,
+        "U_RegisteredOn": "2026-08-01",
+        "_id": "U101"
+      },
+      {
+        "U_ID": "U102",
+        "U_FirstName": "Rohan",
+        "U_LastName": "Mehta",
+        "U_Email": "rohan.mehta@college.edu.in",
+        "U_PasswordHash": "de860b14d35278b33198699114d498a174ac20c2693d9603f409c0b5c344bc0d",
+        "U_Role": "ADMIN",
+        "U_IsActive": 1,
+        "U_RegisteredOn": "2026-08-01",
+        "_id": "U102"
+      },
+      {
+        "U_ID": "U103",
+        "U_FirstName": "Aarav",
+        "U_LastName": "Sharma",
+        "U_Email": "aarav.sharma@college.edu.in",
+        "U_PasswordHash": "bd94dcda26fccb4e68d6a31f9b5aac0b571ae266d822620e901ef7ebe3a11d4f",
+        "U_Role": "STUDENT",
+        "U_IsActive": 1,
+        "U_RegisteredOn": "2026-08-05",
+        "_id": "U103"
+      },
+      {
+        "U_ID": "U104",
+        "U_FirstName": "Priya",
+        "U_LastName": "Singh",
+        "U_Email": "priya.singh@college.edu.in",
+        "U_PasswordHash": "bd94dcda26fccb4e68d6a31f9b5aac0b571ae266d822620e901ef7ebe3a11d4f",
+        "U_Role": "STUDENT",
+        "U_IsActive": 1,
+        "U_RegisteredOn": "2026-08-06",
+        "_id": "U104"
+      },
+      {
+        "U_ID": "U105",
+        "U_FirstName": "Karan",
+        "U_LastName": "Joshi",
+        "U_Email": "karan.joshi@college.edu.in",
+        "U_PasswordHash": "bd94dcda26fccb4e68d6a31f9b5aac0b571ae266d822620e901ef7ebe3a11d4f",
+        "U_Role": "STUDENT",
+        "U_IsActive": 1,
+        "U_RegisteredOn": "2026-08-06",
+        "_id": "U105"
+      },
+      {
+        "U_ID": "U106",
+        "U_FirstName": "Sneha",
+        "U_LastName": "Patil",
+        "U_Email": "sneha.patil@college.edu.in",
+        "U_PasswordHash": "bd94dcda26fccb4e68d6a31f9b5aac0b571ae266d822620e901ef7ebe3a11d4f",
+        "U_Role": "STUDENT",
+        "U_IsActive": 1,
+        "U_RegisteredOn": "2026-08-07",
+        "_id": "U106"
+      },
+      {
+        "U_ID": "U107",
+        "U_FirstName": "Vivek",
+        "U_LastName": "Desai",
+        "U_Email": "vivek.desai@college.edu.in",
+        "U_PasswordHash": "bd94dcda26fccb4e68d6a31f9b5aac0b571ae266d822620e901ef7ebe3a11d4f",
+        "U_Role": "STUDENT",
+        "U_IsActive": 1,
+        "U_RegisteredOn": "2026-08-08",
+        "_id": "U107"
+      },
+      {
+        "U_ID": "U108",
+        "U_FirstName": "Ishita",
+        "U_LastName": "Kulkarni",
+        "U_Email": "ishita.kulkarni@college.edu.in",
+        "U_PasswordHash": "bd94dcda26fccb4e68d6a31f9b5aac0b571ae266d822620e901ef7ebe3a11d4f",
+        "U_Role": "STUDENT",
+        "U_IsActive": 1,
+        "U_RegisteredOn": "2026-09-20",
+        "_id": "U108"
+      },
+      {
+        "U_ID": "U109",
+        "U_FirstName": "PHALE",
+        "U_LastName": "JANHAVI UMESH",
+        "U_Email": "janhavi.phale.btech2025@sitpune.edu.in",
+        "U_PasswordHash": "2b366ae7e70f97e136551ac254c8c7493056956e0ded85ef40dee69b3fef11cd",
+        "U_Role": "STUDENT",
+        "U_IsActive": 1,
+        "U_RegisteredOn": "2026-10-19",
+        "_id": "U109"
+      },
+      {
+        "U_ID": "U110",
+        "U_FirstName": "KAMYA",
+        "U_LastName": "MAHAKUL",
+        "U_Email": "kamya.mahakul.btech2025@sitpune.edu.in",
+        "U_PasswordHash": "2b366ae7e70f97e136551ac254c8c7493056956e0ded85ef40dee69b3fef11cd",
+        "U_Role": "STUDENT",
+        "U_IsActive": 1,
+        "U_RegisteredOn": "2026-10-19",
+        "_id": "U110"
+      },
+      {
+        "U_ID": "U111",
+        "U_FirstName": "JAIKRIT",
+        "U_LastName": "SETHI",
+        "U_Email": "jaikrit.sethi.btech2025@sitpune.edu.in",
+        "U_PasswordHash": "2b366ae7e70f97e136551ac254c8c7493056956e0ded85ef40dee69b3fef11cd",
+        "U_Role": "STUDENT",
+        "U_IsActive": 1,
+        "U_RegisteredOn": "2026-10-19",
+        "_id": "U111"
+      }
+    ],
+    "verifies": [
+      {
+        "Ver_ID": "V101",
+        "Ver_On": "2026-08-06",
+        "Ver_Decision": "APPROVED",
+        "Ver_Remarks": "College ID matched",
+        "Admin_U_ID": "U101",
+        "Student_U_ID": "U103",
+        "_id": "V101"
+      },
+      {
+        "Ver_ID": "V102",
+        "Ver_On": "2026-08-07",
+        "Ver_Decision": "APPROVED",
+        "Ver_Remarks": "College ID matched",
+        "Admin_U_ID": "U102",
+        "Student_U_ID": "U104",
+        "_id": "V102"
+      },
+      {
+        "Ver_ID": "V103",
+        "Ver_On": "2026-08-07",
+        "Ver_Decision": "APPROVED",
+        "Ver_Remarks": "College ID matched",
+        "Admin_U_ID": "U101",
+        "Student_U_ID": "U105",
+        "_id": "V103"
+      },
+      {
+        "Ver_ID": "V104",
+        "Ver_On": "2026-08-08",
+        "Ver_Decision": "APPROVED",
+        "Ver_Remarks": "College ID matched",
+        "Admin_U_ID": "U102",
+        "Student_U_ID": "U106",
+        "_id": "V104"
+      },
+      {
+        "Ver_ID": "V105",
+        "Ver_On": "2026-08-09",
+        "Ver_Decision": "APPROVED",
+        "Ver_Remarks": "College ID matched",
+        "Admin_U_ID": "U101",
+        "Student_U_ID": "U107",
+        "_id": "V105"
+      }
+    ],
+    "wish_match": [
+      {
+        "WM_ID": "WM101",
+        "WM_MatchedOn": "2026-09-12",
+        "WM_IsSeen": 1,
+        "W_ID": "W101",
+        "I_ID": "I102",
+        "_id": "WM101"
+      },
+      {
+        "WM_ID": "WM102",
+        "WM_MatchedOn": "2026-09-10",
+        "WM_IsSeen": 1,
+        "W_ID": "W102",
+        "I_ID": "I101",
+        "_id": "WM102"
+      },
+      {
+        "WM_ID": "WM103",
+        "WM_MatchedOn": "2026-09-15",
+        "WM_IsSeen": 0,
+        "W_ID": "W103",
+        "I_ID": "I104",
+        "_id": "WM103"
+      },
+      {
+        "WM_ID": "WM104",
+        "WM_MatchedOn": "2026-09-05",
+        "WM_IsSeen": 1,
+        "W_ID": "W104",
+        "I_ID": "I103",
+        "_id": "WM104"
+      },
+      {
+        "WM_ID": "WM105",
+        "WM_MatchedOn": "2026-09-16",
+        "WM_IsSeen": 0,
+        "W_ID": "W105",
+        "I_ID": "I106",
+        "_id": "WM105"
+      }
+    ],
+    "wishlist": [
+      {
+        "W_ID": "W101",
+        "W_Keyword": "DBMS book",
+        "W_MaxPrice": 400,
+        "W_CreatedOn": "2026-09-05",
+        "W_IsActive": 1,
+        "U_ID": "U104",
+        "Sub_ID": "SB103",
+        "Cat_ID": "CA101",
+        "_id": "W101"
+      },
+      {
+        "W_ID": "W102",
+        "W_Keyword": "Data Structures",
+        "W_MaxPrice": 350,
+        "W_CreatedOn": "2026-09-05",
+        "W_IsActive": 1,
+        "U_ID": "U105",
+        "Sub_ID": "SB102",
+        "Cat_ID": null,
+        "_id": "W102"
+      },
+      {
+        "W_ID": "W103",
+        "W_Keyword": "cycle",
+        "W_MaxPrice": 3000,
+        "W_CreatedOn": "2026-09-08",
+        "W_IsActive": 1,
+        "U_ID": "U106",
+        "Sub_ID": null,
+        "Cat_ID": "CA104",
+        "_id": "W103"
+      },
+      {
+        "W_ID": "W104",
+        "W_Keyword": "scientific calculator",
+        "W_MaxPrice": 700,
+        "W_CreatedOn": "2026-09-03",
+        "W_IsActive": 1,
+        "U_ID": "U105",
+        "Sub_ID": null,
+        "Cat_ID": "CA103",
+        "_id": "W104"
+      },
+      {
+        "W_ID": "W105",
+        "W_Keyword": "drawing kit",
+        "W_MaxPrice": 300,
+        "W_CreatedOn": "2026-09-08",
+        "W_IsActive": 1,
+        "U_ID": "U106",
+        "Sub_ID": "SB105",
+        "Cat_ID": null,
+        "_id": "W105"
+      }
+    ]
+  }
+}
