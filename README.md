@@ -188,7 +188,7 @@ npm test --prefix frontend
 
 ## 4. Backend
 
-The Express server keeps the original operation contract
+The NODE server keeps the original operation contract
 `POST /campuskart/api/<name>` because that is what the preserved screens call.
 It also exposes a conventional REST surface at `/api/v1` with GET, POST, PATCH
 and DELETE methods, status codes and resource URLs. Both surfaces call the same
